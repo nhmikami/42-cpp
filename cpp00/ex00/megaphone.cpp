@@ -13,9 +13,9 @@
 #include <cctype>
 #include <iostream>
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	std::string input;
+	std::string	input;
 
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";

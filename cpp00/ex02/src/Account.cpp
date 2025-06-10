@@ -14,10 +14,10 @@
 #include <iostream>
 #include <ctime>
 
-int Account::_nbAccounts = 0;
-int Account::_totalAmount = 0;
-int Account::_totalNbDeposits = 0;
-int Account::_totalNbWithdrawals = 0;
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit) :
 	_accountIndex(_nbAccounts), _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0) {
@@ -39,7 +39,7 @@ Account::~Account() {
 			  << "closed" << std::endl;
 }
 
-int  Account::getNbAccounts(void) {
+int	Account::getNbAccounts(void) {
 	return _nbAccounts;
 }
 
@@ -55,7 +55,7 @@ int	Account::getNbWithdrawals(void) {
 	return _totalNbWithdrawals;
 }
 
-int		Account::checkAmount(void) const {
+int	Account::checkAmount(void) const {
 	return _amount;
 }
 

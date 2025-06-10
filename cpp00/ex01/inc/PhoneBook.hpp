@@ -29,8 +29,8 @@ class PhoneBook {
 		PhoneBook();
 		~PhoneBook();
 
-		void addContact();
-		void searchContact() const;
+		void	addContact();
+		void	searchContact() const;
 };
 
 #endif

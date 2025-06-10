@@ -48,10 +48,10 @@ void	PhoneBook::searchContact() const {
 	}
 	std::cout << std::endl;
 
-	std::string input;
+	std::string	input;
 	std::cout << "Enter the index to view contact's details: ";
 	std::getline(std::cin, input);
-	int index = std::atoi(input.c_str());
+	int	index = std::atoi(input.c_str());
 
 	if (index < 1 || index > _contactCount || index > 8) {
 		std::cout << "Invalid index." << std::endl;

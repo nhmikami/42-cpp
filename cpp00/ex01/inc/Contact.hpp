@@ -17,11 +17,11 @@
 
 class Contact {
 	private:
-		std::string _firstName;
-		std::string _lastName;
-		std::string _nickname;
-		std::string _phoneNumber;
-		std::string _darkestSecret;
+		std::string	_firstName;
+		std::string	_lastName;
+		std::string	_nickname;
+		std::string	_phoneNumber;
+		std::string	_darkestSecret;
 
 		std::string	_getInputData(std::string field) const;
 
@@ -29,9 +29,9 @@ class Contact {
 		Contact();
 		~Contact();
 
-		std::string getFirstName() const;
-		std::string getLastName() const;
-		std::string getNickname() const;
+		std::string	getFirstName() const;
+		std::string	getLastName() const;
+		std::string	getNickname() const;
 
 		void	setContactInfo();
 		void	displayContactInfo() const;

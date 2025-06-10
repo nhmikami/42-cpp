@@ -13,7 +13,7 @@
 #include "PhoneBook.hpp"
 
 int	main() {
-	PhoneBook	phoneBook;
+	PhoneBook	phonebook;
 	std::string	command;
 
 	while (true) {
@@ -21,9 +21,9 @@ int	main() {
 		std::getline(std::cin, command);
 
 		if (command == "ADD")
-			phoneBook.addContact();
+			phonebook.addContact();
 		else if (command == "SEARCH")
-			phoneBook.searchContact();
+			phonebook.searchContact();
 		else if (command == "EXIT")
 			break;
 		else
