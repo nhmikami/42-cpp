@@ -14,6 +14,9 @@
 #define PHONEBOOK_HPP
 
 #include "Contact.hpp"
+#include <cstdlib>
+#include <iomanip>
+#include <iostream>
 
 class PhoneBook {
 	private:
