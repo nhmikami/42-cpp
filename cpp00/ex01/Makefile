@@ -7,7 +7,7 @@ SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC			=	$(addprefix $(SRC_DIR), main.cpp Contact.cpp PhoneBook.cpp)
+SRC			=	$(addprefix $(SRC_DIR), Contact.cpp PhoneBook.cpp main.cpp)
 OBJ			=	$(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC			=	-I $(INC_DIR)
 
