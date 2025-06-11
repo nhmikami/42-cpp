@@ -1,4 +1,4 @@
-NAME		=	zombiehorde
+NAME		=	sed
 
 CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -std=c++98
@@ -7,7 +7,7 @@ SRC_DIR		=	src/
 INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
-SRC			=	$(addprefix $(SRC_DIR), Zombie.cpp newZombie.cpp randomChump.cpp main.cpp)
+SRC			=	$(addprefix $(SRC_DIR), Sed.cpp main.cpp)
 OBJ			=	$(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC			=	-I $(INC_DIR)
 

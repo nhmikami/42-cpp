@@ -6,25 +6,25 @@
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/10 18:58:41 by naharumi          #+#    #+#             */
-/*   Updated: 2025/06/11 12:14:23 by marvin           ###   ########.fr       */
+/*   Updated: 2025/06/11 01:41:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include <iostream>
 
 int	main() {
-	int	horde_size = 5;
+	std::string	brain = "HI THIS IS BRAIN";
+	std::string	*stringPTR = &brain;
+	std::string	&stringREF = brain;
 
-	std::cout << "* Creating horde of " << horde_size << " zombies on the heap" << std::endl;
-	Zombie* horde = zombieHorde(horde_size, "OompaLoompa");
+	std::cout << "Memory address of the string variable: " << &brain << std::endl;
+	std::cout << "Memory address held by stringPTR:      " << stringPTR << std::endl;
+	std::cout << "Memory address held by stringREF:      " << &stringREF << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "* The horde is announcing itself!" << std::endl;
-	for (int i = 0; i < horde_size; i++)
-		horde[i].announce();
-	std::cout << std::endl;
-		
-	std::cout << "* Deleting zombie horde from the heap" << std::endl;
-	delete[] horde;
+	std::cout << "Value of the string variable:          " << brain << std::endl;
+	std::cout << "Value pointed to by stringPTR:         " << *stringPTR << std::endl;
+	std::cout << "Value pointed to by stringREF:         " << stringREF << std::endl;
+	
 	return 0;
 }
