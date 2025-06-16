@@ -1,0 +1,28 @@
+#include "Animal.hpp"
+
+Animal::Animal(void) : _type("unknown animal") {
+	std::cout << "An animal has been created." << std::endl;
+}
+
+Animal::Animal(const Animal& other) : _type(other._type) {
+	std::cout << "An animal has been cloned." << std::endl;
+}
+
+Animal::~Animal(void) {
+	std::cout << "An animal has been destroyed." << std::endl;
+}
+
+Animal&	Animal::operator=(const Animal& other) {
+	if (this != &other)
+		_type = other._type;
+	std::cout << "An animal has been assigned values from another animal." << std::endl;
+	return *this;
+}
+
+void	Animal::makeSound(void) const {
+	std::cout << _type << ": *no sound*" << std::endl;
+}
+
+std::string	Animal::getType(void) const {
+	return _type;
+}
