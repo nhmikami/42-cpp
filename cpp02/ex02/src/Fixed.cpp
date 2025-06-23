@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/06/23 10:10:24 by naharumi          #+#    #+#             */
+/*   Updated: 2025/06/23 10:10:24 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
-/* ********************** Constructors and Destructor ********************** */
+/* *********************** Constructors and Destructor ********************** */
 Fixed::Fixed() : _rawBits(0) {
 	// std::cout << "Default constructor called" << std::endl;
 }
@@ -22,7 +34,7 @@ Fixed::~Fixed() {
 	// std::cout << "Destructor called" << std::endl;
 }
 
-/* ************************** Assignment operator ************************** */
+/* *************************** Assignment operator ************************** */
 Fixed&	Fixed::operator=(const Fixed& other) {
 	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
@@ -31,7 +43,7 @@ Fixed&	Fixed::operator=(const Fixed& other) {
 	return *this;
 }
 
-/* ************************** Comparison operators ************************* */
+/* ************************** Comparison operators ************************** */
 bool	Fixed::operator>(const Fixed& other) const {
 	return _rawBits > other.getRawBits();
 }
@@ -56,7 +68,7 @@ bool	Fixed::operator!=(const Fixed& other) const {
 	return _rawBits != other.getRawBits();
 }
 
-/* ************************** Arithmetic operators ************************* */
+/* ************************** Arithmetic operators ************************** */
 Fixed	Fixed::operator+(const Fixed& other) const {
 	Fixed	result;
 	result.setRawBits(this->_rawBits + other.getRawBits());
@@ -89,7 +101,7 @@ Fixed	Fixed::operator/(const Fixed& other) const {
 	return result;
 }
 
-/* ************************** Increment / Decrement ************************ */
+/* ************************** Increment / Decrement ************************* */
 Fixed&	Fixed::operator++() {
 	_rawBits++;
 	return *this;
@@ -112,7 +124,7 @@ Fixed	Fixed::operator--(int) {
 	return temp;
 }
 
-/* *********************** Min / Max static functions ********************** */
+/* *********************** Min / Max static functions *********************** */
 Fixed&	Fixed::min(Fixed& a, Fixed& b) {
 	return (a < b) ? a : b;
 }
@@ -129,7 +141,7 @@ const Fixed&	Fixed::max(const Fixed& a, const Fixed& b) {
 	return (a > b) ? a : b;
 }
 
-/* ************************** Getters and Setters ************************** */
+/* *************************** Getters and Setters ************************** */
 int	Fixed::getRawBits(void) const {
 	return _rawBits;
 }
@@ -138,7 +150,7 @@ void	Fixed::setRawBits(int const raw) {
 	_rawBits = raw;
 }
 
-/* ************************** Conversion functions ************************* */
+/* ************************** Conversion functions ************************** */
 float	Fixed::toFloat(void) const {
 	return static_cast<float>(_rawBits) / (1 << _fractionalBits);
 }
@@ -147,7 +159,7 @@ int	Fixed::toInt(void) const {
 	return _rawBits >> _fractionalBits;
 }
 
-/* **************************** Output operator **************************** */
+/* ***************************** Output operator **************************** */
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed) {
 	out << fixed.toFloat();
 	return out;
