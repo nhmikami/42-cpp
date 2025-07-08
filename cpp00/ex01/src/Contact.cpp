@@ -36,24 +36,35 @@ std::string	Contact::_getInputData(std::string field) const {
 		std::getline(std::cin, data);
 
 		if (!std::cin) {
-			std::cerr << "Error reading input." << std::endl;
+			std::cerr << RED << "Error reading input." << RESET << std::endl;
 			return ("");
 		}
 
 		if (!data.empty())
 			break ;
 
-		std::cout << "Field can't be empty. Please try again." << std::endl;
+		std::cout << RED << "Field can't be empty. Please try again." << RESET << std::endl;
 	}
 	return (data);
 }
 
 void	Contact::setContactInfo() {
 	_firstName = _getInputData("First Name");
+	if (_firstName.empty() && std::cin.eof())
+		return ;
 	_lastName = _getInputData("Last Name");
+	if (_lastName.empty() && std::cin.eof())
+		return ;
 	_nickname = _getInputData("Nickname");
+	if (_nickname.empty() && std::cin.eof())
+		return ;
 	_phoneNumber = _getInputData("Phone Number");
+	if (_phoneNumber.empty() && std::cin.eof())
+		return ;
 	_darkestSecret = _getInputData("Darkest Secret");
+	if (_darkestSecret.empty() && std::cin.eof())
+		return ;
+	std::cout << GREEN << "Contact added successfully!" << RESET << std::endl;
 	return ;
 }
 

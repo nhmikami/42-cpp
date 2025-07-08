@@ -25,8 +25,7 @@ std::string	PhoneBook::_truncateData(const std::string str) const {
 void	PhoneBook::addContact() {
 	_contacts[_contactCount % 8].setContactInfo();
 	_contactCount++;
-	
-	std::cout << "Contact added successfully!" << std::endl;
+
 	return ;
 }
 
@@ -36,15 +35,17 @@ void	PhoneBook::searchContact() const {
 		return ;
 	}
 
-	std::cout << std::setw(10) << "Index" << "|"
+	std::cout << "|" 
+			  << std::setw(10) << "Index" << "|"
 			  << std::setw(10) << "First Name" << "|"
 			  << std::setw(10) << "Last Name" << "|"
-			  << std::setw(10) << "Nickname" << std::endl;
+			  << std::setw(10) << "Nickname" << "|" << std::endl;
 	for (int i = 0; i < _contactCount && i < 8; i++) {
-		std::cout << std::setw(10) << i + 1 << "|"
+		std::cout << "|" 
+				  << std::setw(10) << i + 1 << "|"
 				  << std::setw(10) << _truncateData(_contacts[i].getFirstName()) << "|"
 				  << std::setw(10) << _truncateData(_contacts[i].getLastName()) << "|"
-				  << std::setw(10) << _truncateData(_contacts[i].getNickname()) << std::endl;
+				  << std::setw(10) << _truncateData(_contacts[i].getNickname()) << "|" << std::endl;
 	}
 	std::cout << std::endl;
 
@@ -54,7 +55,7 @@ void	PhoneBook::searchContact() const {
 	int	index = std::atoi(input.c_str());
 
 	if (index < 1 || index > _contactCount || index > 8) {
-		std::cout << "Invalid index." << std::endl;
+		std::cout << RED << "Invalid index." << RESET << std::endl;
 		return ;
 	}
 

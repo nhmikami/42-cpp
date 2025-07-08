@@ -18,6 +18,10 @@
 #include <iomanip>
 #include <iostream>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define YELLOW  "\033[33m"
+
 class PhoneBook {
 	private:
 		Contact	_contacts[8];

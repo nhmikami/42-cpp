@@ -17,17 +17,33 @@ int	main() {
 	std::string	command;
 
 	while (true) {
-		std::cout << "Enter command (ADD, SEARCH, EXIT): ";
+		std::cout << YELLOW << "Enter command (ADD, SEARCH, EXIT): " << RESET;
 		std::getline(std::cin, command);
 
-		if (command == "ADD")
+		if (!std::cin) {
+			std::cout << std::endl << "Goodbye!" << std::endl;
+			break ;
+		}
+		if (command == "ADD") {
 			phonebook.addContact();
-		else if (command == "SEARCH")
+			if (!std::cin) {
+				std::cout << std::endl << "Goodbye!" << std::endl;
+				break ;
+			}
+		}
+		else if (command == "SEARCH") {
 			phonebook.searchContact();
-		else if (command == "EXIT")
-			break;
+			if (!std::cin) {
+				std::cout << std::endl << "Goodbye!" << std::endl;
+				break ;
+			}
+		}
+		else if (command == "EXIT") {
+			std::cout << "Goodbye!" << std::endl;
+			break ;
+		}
 		else
-			std::cout << "Invalid command." << std::endl;
+			std::cout << RED << "Invalid command." << RESET << std::endl;
 		std::cout << std::endl;
 	}
 	return 0;
