@@ -37,7 +37,7 @@ class Contact {
 		std::string	getLastName() const;
 		std::string	getNickname() const;
 
-		void	setContactInfo();
+		int		setContactInfo();
 		void	displayContactInfo() const;
 };
 

@@ -17,26 +17,19 @@ int	main() {
 	std::string	command;
 
 	while (true) {
+		if (!std::cin) {
+			std::cout << "Goodbye!" << std::endl;
+			break ;
+		}
+
 		std::cout << YELLOW << "Enter command (ADD, SEARCH, EXIT): " << RESET;
 		std::getline(std::cin, command);
 
-		if (!std::cin) {
-			std::cout << std::endl << "Goodbye!" << std::endl;
-			break ;
-		}
 		if (command == "ADD") {
 			phonebook.addContact();
-			if (!std::cin) {
-				std::cout << std::endl << "Goodbye!" << std::endl;
-				break ;
-			}
 		}
 		else if (command == "SEARCH") {
 			phonebook.searchContact();
-			if (!std::cin) {
-				std::cout << std::endl << "Goodbye!" << std::endl;
-				break ;
-			}
 		}
 		else if (command == "EXIT") {
 			std::cout << "Goodbye!" << std::endl;

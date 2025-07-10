@@ -23,9 +23,10 @@ std::string	PhoneBook::_truncateData(const std::string str) const {
 }
 
 void	PhoneBook::addContact() {
-	_contacts[_contactCount % 8].setContactInfo();
-	_contactCount++;
+	if (!_contacts[_contactCount % 8].setContactInfo())
+		return ;
 
+	_contactCount++;
 	return ;
 }
 
@@ -52,8 +53,12 @@ void	PhoneBook::searchContact() const {
 	std::string	input;
 	std::cout << "Enter the index to view contact's details: ";
 	std::getline(std::cin, input);
-	int	index = std::atoi(input.c_str());
+	if (!std::cin) {
+		std::cerr << RED << "Error reading input." << RESET << std::endl;
+		return ;
+	}
 
+	int	index = std::atoi(input.c_str());
 	if (index < 1 || index > _contactCount || index > 8) {
 		std::cout << RED << "Invalid index." << RESET << std::endl;
 		return ;

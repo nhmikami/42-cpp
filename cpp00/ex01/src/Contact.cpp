@@ -48,24 +48,24 @@ std::string	Contact::_getInputData(std::string field) const {
 	return (data);
 }
 
-void	Contact::setContactInfo() {
+int	Contact::setContactInfo() {
 	_firstName = _getInputData("First Name");
-	if (_firstName.empty() && std::cin.eof())
-		return ;
+	if (!std::cin)
+		return 0;
 	_lastName = _getInputData("Last Name");
-	if (_lastName.empty() && std::cin.eof())
-		return ;
+	if (!std::cin)
+		return 0;
 	_nickname = _getInputData("Nickname");
-	if (_nickname.empty() && std::cin.eof())
-		return ;
+	if (!std::cin)
+		return 0;;
 	_phoneNumber = _getInputData("Phone Number");
-	if (_phoneNumber.empty() && std::cin.eof())
-		return ;
+	if (!std::cin)
+		return 0;
 	_darkestSecret = _getInputData("Darkest Secret");
-	if (_darkestSecret.empty() && std::cin.eof())
-		return ;
+	if (!std::cin)
+		return 0;
 	std::cout << GREEN << "Contact added successfully!" << RESET << std::endl;
-	return ;
+	return 1;
 }
 
 void	Contact::displayContactInfo() const {
