@@ -15,6 +15,9 @@
 
 #include <iostream>
 
+#define RESET   "\033[0m"
+#define YELLOW  "\033[33m"
+
 class Zombie {
 	private:
 		std::string	_name;
@@ -28,6 +31,6 @@ class Zombie {
 		void	setName(std::string name);
 };
 
-Zombie	*zombieHorde(int N, std::string name);
+Zombie*	zombieHorde(int N, std::string name);
 
 #endif

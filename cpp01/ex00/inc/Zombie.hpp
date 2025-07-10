@@ -15,6 +15,9 @@
 
 #include <iostream>
 
+#define RESET   "\033[0m"
+#define YELLOW  "\033[33m"
+
 class Zombie {
 	private:
 		std::string	_name;
@@ -26,7 +29,7 @@ class Zombie {
 		void	announce(void);
 };
 
-Zombie	*newZombie(std::string name);
+Zombie*	newZombie(std::string name);
 void	randomChump(std::string name);
 
 #endif

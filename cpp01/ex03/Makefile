@@ -35,9 +35,11 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 						
 clean:
 				rm -rf $(OBJ_DIR)
+				@echo "$(RED)[cleaning]$(RESET) objects cleaned"
 
 fclean:			clean
-				rm -f $(NAME)
+				@rm -f $(NAME)
+				@echo "$(RED)[cleaning]$(RESET) $(NAME) removed"
 
 re:				fclean all
 

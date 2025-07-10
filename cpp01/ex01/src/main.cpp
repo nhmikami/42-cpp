@@ -15,16 +15,16 @@
 int	main() {
 	int	horde_size = 5;
 
-	std::cout << "* Creating horde of " << horde_size << " zombies on the heap" << std::endl;
+	std::cout << YELLOW << "* Creating horde of " << horde_size << " zombies on the heap *" << RESET << std::endl;
 	Zombie* horde = zombieHorde(horde_size, "OompaLoompa");
 	std::cout << std::endl;
 
-	std::cout << "* The horde is announcing itself!" << std::endl;
+	std::cout << YELLOW << "* The horde is announcing itself! *" << RESET << std::endl;
 	for (int i = 0; i < horde_size; i++)
 		horde[i].announce();
 	std::cout << std::endl;
 		
-	std::cout << "* Deleting zombie horde from the heap" << std::endl;
+	std::cout << YELLOW << "* Deleting zombie horde from the heap *" << RESET << std::endl;
 	delete[] horde;
 	return 0;
 }

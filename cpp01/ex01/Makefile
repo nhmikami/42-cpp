@@ -32,12 +32,14 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@$(CC) $(CFLAGS) $(INC) -c $< -o $@
 	@echo "$(YELLOW)[compiling]$(RESET) $@"
-						
+
 clean:
-				rm -rf $(OBJ_DIR)
+				@rm -rf $(OBJ_DIR)
+				@echo "$(RED)[cleaning]$(RESET) objects cleaned"
 
 fclean:			clean
-				rm -f $(NAME)
+				@rm -f $(NAME)
+				@echo "$(RED)[cleaning]$(RESET) $(NAME) removed"
 
 re:				fclean all
 

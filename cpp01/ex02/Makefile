@@ -27,10 +27,12 @@ $(NAME):		$(OBJ)
 	@echo "$(YELLOW)[compiling]$(RESET) $@"
 						
 clean:
-				rm -f $(OBJ)
+				@rm -rf $(OBJ)
+				@echo "$(RED)[cleaning]$(RESET) objects cleaned"
 
 fclean:			clean
-				rm -f $(NAME)
+				@rm -f $(NAME)
+				@echo "$(RED)[cleaning]$(RESET) $(NAME) removed"
 
 re:				fclean all
 
