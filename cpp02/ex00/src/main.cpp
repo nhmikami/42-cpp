@@ -13,36 +13,37 @@
 #include "Fixed.hpp"
 
 int	main(void) {
-	std::cout << "* Default constructor" << std::endl;
+	std::cout << YELLOW << "* Default constructor *" << RESET << std::endl;
 	Fixed	a;
 	std::cout << std::endl;
 
-	std::cout << "* Copy constructor" << std::endl;
+	std::cout << YELLOW << "* Copy constructor *" << RESET << std::endl;
 	Fixed	b(a);
 	std::cout << std::endl;
 
-	std::cout << "* Default constructor + Assignment operator" << std::endl;
+	std::cout << YELLOW << "* Default constructor + Assignment operator *" << RESET << std::endl;
 	Fixed	c;
 	c = b;
 	std::cout << std::endl;
 
-	std::cout << "* getRawBits" << std::endl;
+	std::cout << YELLOW << "* getRawBits *" << RESET << std::endl;
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 	std::cout << std::endl;
 
-	std::cout << "* setRawBits" << std::endl;
+	std::cout << YELLOW << "* setRawBits *" << RESET << std::endl;
 	a.setRawBits(42);
 	b.setRawBits(21);
 	c.setRawBits(84);
 	std::cout << std::endl;
 
-	std::cout << "* getRawBits" << std::endl;
+	std::cout << YELLOW << "* getRawBits *" << RESET << std::endl;
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
 	std::cout << c.getRawBits() << std::endl;
 	std::cout << std::endl;
 
+	std::cout << YELLOW << "* End *" << RESET << std::endl;
 	return 0;
 }

@@ -153,7 +153,7 @@ int	Fixed::toInt(void) const {
 	return _rawBits >> _fractionalBits;
 }
 
-/* ***************************** Output operator **************************** */
+/* **************************** Overload operator *************************** */
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed) {
 	out << fixed.toFloat();
 	return out;
