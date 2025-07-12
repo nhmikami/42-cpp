@@ -14,9 +14,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
 
-#define RESET "\033[0m"
-#define YELLOW "\033[33m"
-
 int	main(void) {
 	std::cout << YELLOW << "*** This tale is about to start ***" << RESET << std::endl;
 	ClapTrap	ct("Clappy");

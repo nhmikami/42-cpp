@@ -12,9 +12,6 @@
 
 #include "ClapTrap.hpp"
 
-#define RESET "\033[0m"
-#define YELLOW "\033[33m"
-
 int	main(void) {
 	std::cout << YELLOW << "*** ClapTraps entering ***" << RESET << std::endl;
 	ClapTrap ct1("CT-One");
@@ -24,13 +21,13 @@ int	main(void) {
 	ClapTrap ctClone(ct1);
 	std::cout << std::endl;
 
-	std::cout << YELLOW << "*** Basic actions ***" << RESET << std::endl;
+	std::cout << YELLOW << "*** Warm-up session begins! ***" << RESET << std::endl;
 	ct1.attack("Target-A");
 	ct1.takeDamage(3);
 	ct1.beRepaired(5);
 	std::cout << std::endl;
 
-	std::cout << YELLOW << "*** Spending energy ***" << RESET << std::endl;
+	std::cout << YELLOW << "*** Energy-draining training montage ***" << RESET << std::endl;
 	for (int i = 0; i < 11; i++) {
 		ct2.attack("Dummy");
 	}
