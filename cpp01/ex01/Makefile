@@ -1,5 +1,5 @@
 # program name
-NAME		=	zombiehorde
+NAME		=	zombieHorde
 
 # compiler and flags
 CC			=	c++
