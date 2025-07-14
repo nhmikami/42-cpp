@@ -16,6 +16,10 @@
 #include <iostream>
 #include <cmath>
 
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+#define MAGENTA "\033[35m"
+
 class Fixed {
 	private:
 		int					_rawBits;

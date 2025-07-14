@@ -12,9 +12,6 @@
 
 #include "DiamondTrap.hpp"
 
-#define RESET "\033[0m"
-#define YELLOW "\033[33m"
-
 int	main(void) {
 	{
 		std::cout << YELLOW << "*** Shinny confidently steps into the arena ***" << RESET << std::endl;

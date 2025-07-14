@@ -14,29 +14,23 @@
 
 /* *********************** Constructors and Destructor ********************** */
 Fixed::Fixed() : _rawBits(0) {
-	// std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int value) : _rawBits(value << _fractionalBits) {
-	// std::cout << "Int constructor called" << std::endl;
 }
 
 Fixed::Fixed(const float value) 
 	: _rawBits(static_cast<int>(roundf(value * (1 << _fractionalBits)))) {
-	// std::cout << "Float constructor called" << std::endl;
 }
 
 Fixed::Fixed(const Fixed& other) : _rawBits(other.getRawBits()) {
-	// std::cout << "Copy constructor called" << std::endl;
 }
 
 Fixed::~Fixed() {
-	// std::cout << "Destructor called" << std::endl;
 }
 
 /* *************************** Assignment operator ************************** */
 Fixed&	Fixed::operator=(const Fixed& other) {
-	// std::cout << "Copy assignment operator called" << std::endl;
 	if (this != &other) {
 		_rawBits = other.getRawBits();
 	}
@@ -159,7 +153,7 @@ int	Fixed::toInt(void) const {
 	return _rawBits >> _fractionalBits;
 }
 
-/* ***************************** Output operator **************************** */
+/* **************************** Overload operator *************************** */
 std::ostream&	operator<<(std::ostream& out, const Fixed& fixed) {
 	out << fixed.toFloat();
 	return out;

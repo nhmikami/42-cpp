@@ -15,6 +15,9 @@
 
 #include <iostream>
 
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+
 class ClapTrap {
 	protected:
 		std::string		_name;

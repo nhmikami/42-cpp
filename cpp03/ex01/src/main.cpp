@@ -13,9 +13,6 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
-#define RESET "\033[0m"
-#define YELLOW "\033[33m"
-
 int	main(void) {
 	std::cout << YELLOW << "*** Initializing units in binary wasteland ***" << RESET << std::endl;
 	ClapTrap basic("Byte");
@@ -46,7 +43,7 @@ int	main(void) {
 	sentinel.healthReport();
 	std::cout << std::endl;
 
-	std::cout << YELLOW << "*** The cycle ends... for now. ***" << RESET << std::endl;
+	std::cout << YELLOW << "*** The cycle ends... for now ***" << RESET << std::endl;
 
 	return 0;
 }

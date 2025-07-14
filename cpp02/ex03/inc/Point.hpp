@@ -17,6 +17,9 @@
 #include <iostream>
 #include <cmath>
 
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+
 class Point {
 	private:
 		const Fixed	_x;
