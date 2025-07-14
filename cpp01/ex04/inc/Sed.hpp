@@ -16,6 +16,10 @@
 #include <iostream>
 #include <fstream>
 
+#define RESET   "\033[0m"
+#define RED     "\033[31m"
+#define YELLOW  "\033[33m"
+
 std::string	getContent(std::ifstream& infile);
 std::string	replaceStrings(std::string content, std::string s1, std::string s2);
 

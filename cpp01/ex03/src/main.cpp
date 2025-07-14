@@ -17,7 +17,7 @@
 int	main()
 {
 	{
-		std::cout << "* HumanA:" << std::endl;
+		std::cout << YELLOW << "* HumanA *" << RESET << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		HumanA bob("Bob", club);
 
@@ -27,7 +27,7 @@ int	main()
 	}
 	std::cout << std::endl;
 	{
-		std::cout << "* HumanB:" << std::endl;
+		std::cout << YELLOW << "* HumanB *" << RESET << std::endl;
 		Weapon club = Weapon("crude spiked club");
 		HumanB jim("Jim");
 		

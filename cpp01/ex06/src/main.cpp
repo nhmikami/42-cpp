@@ -14,7 +14,7 @@
 
 int	main(int ac, char **av) {
 	if (ac != 2) {
-		std::cerr << "Usage: ./harlFilter [DEBUG|INFO|WARNING|ERROR]" << std::endl;
+		std::cerr << YELLOW << "Usage: " << RESET << "./harlFilter [DEBUG|INFO|WARNING|ERROR]" << std::endl;
 		return 1;
 	}
 	
