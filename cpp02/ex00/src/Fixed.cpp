@@ -12,7 +12,7 @@
 
 #include "Fixed.hpp"
 
-Fixed::Fixed() : _rawBits(0) {
+Fixed::Fixed(void) : _rawBits(0) {
 	std::cout << "Default constructor called" << std::endl;
 }
 
@@ -21,7 +21,7 @@ Fixed::Fixed(const Fixed& other) {
 	*this = other;
 }
 
-Fixed::~Fixed() {
+Fixed::~Fixed(void) {
 	std::cout << "Destructor called" << std::endl;
 }
 

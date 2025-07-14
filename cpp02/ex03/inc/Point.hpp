@@ -26,10 +26,10 @@ class Point {
 		const Fixed	_y;
 
 	public:
-		Point();
+		Point(void);
 		Point(const float x, const float y);
 		Point(const Point& other);
-		~Point();
+		~Point(void);
 
 		Point&	operator=(const Point& other);
 

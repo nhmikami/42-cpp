@@ -13,7 +13,7 @@
 #include "Fixed.hpp"
 
 /* *********************** Constructors and Destructor ********************** */
-Fixed::Fixed() : _rawBits(0) {
+Fixed::Fixed(void) : _rawBits(0) {
 }
 
 Fixed::Fixed(const int value) : _rawBits(value << _fractionalBits) {
@@ -26,7 +26,7 @@ Fixed::Fixed(const float value)
 Fixed::Fixed(const Fixed& other) : _rawBits(other.getRawBits()) {
 }
 
-Fixed::~Fixed() {
+Fixed::~Fixed(void) {
 }
 
 /* *************************** Assignment operator ************************** */

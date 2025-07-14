@@ -72,7 +72,6 @@ int	main(void) {
 		std::cout << "Min of c and d: " << Fixed::min(c, d) << std::endl;
 		std::cout << "Max of a and b: " << Fixed::max(a, b) << std::endl;
 		std::cout << "Max of c and d: " << Fixed::max(c, d) << std::endl;
-		std::cout << std::endl;
 	}
 	return 0;
 }

@@ -23,11 +23,11 @@ class Fixed {
 
 	public:
 		// Constructors and Destructor
-		Fixed();
+		Fixed(void);
 		Fixed(const int value);
 		Fixed(const float value);
 		Fixed(const Fixed& other);
-		~Fixed();
+		~Fixed(void);
 
 		// Assignment operator
 		Fixed&	operator=(const Fixed& other);
