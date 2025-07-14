@@ -65,5 +65,5 @@ void	ScavTrap::guardGate(void) const {
 		std::cout << "ScavTrap " << _name << " is already dead and cannot guard the gate." << std::endl;
 		return ;
 	}
-	std::cout << "ScavTrap " << _name << " is now in Gate Keeper mode." << std::endl;
+	std::cout << "ScavTrap " << _name << " is now in gate keeper mode." << std::endl;
 }

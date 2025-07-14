@@ -18,8 +18,8 @@
 #include <iostream>
 
 class DiamondTrap : public ScavTrap, public FragTrap {
-    private:
-        std::string _name;
+	private:
+		std::string _name;
 
 	public:
 		DiamondTrap(void);
@@ -29,7 +29,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
 
 		DiamondTrap&	operator=(const DiamondTrap& other);
 
-        void    attack(const std::string& target);
+		void	attack(const std::string& target);
 		void	whoAmI(void) const;
 };
 

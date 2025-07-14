@@ -15,23 +15,23 @@
 
 int	main(void) {
 	std::cout << YELLOW << "*** Initializing units in binary wasteland ***" << RESET << std::endl;
-	ClapTrap basic("Byte");
-	ScavTrap sentinel("Gatekeeper");
+	ClapTrap enemy("Hacked Byte");
+	ScavTrap sentinel("Firewall");
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "*** System diagnostics report ***" << RESET << std::endl;
-	basic.healthReport();
+	enemy.healthReport();
 	sentinel.healthReport();
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "*** Byte tests its attack routine on Gatekeeper! ***" << RESET << std::endl;
-	basic.attack(sentinel.getName());
-	sentinel.takeDamage(basic.getAttackDamage());
+	enemy.attack(sentinel.getName());
+	sentinel.takeDamage(enemy.getAttackDamage());
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "*** Gatekeeper retaliates with precision! ***" << RESET << std::endl;
-	sentinel.attack(basic.getName());
-	basic.takeDamage(sentinel.getAttackDamage());
+	sentinel.attack(enemy.getName());
+	enemy.takeDamage(sentinel.getAttackDamage());
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "*** Gatekeeper activates defense protocol ***" << RESET << std::endl;
@@ -39,7 +39,7 @@ int	main(void) {
 	std::cout << std::endl;
 
 	std::cout << YELLOW << "*** Status after the skirmish ***" << RESET << std::endl;
-	basic.healthReport();
+	enemy.healthReport();
 	sentinel.healthReport();
 	std::cout << std::endl;
 
