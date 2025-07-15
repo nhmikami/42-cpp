@@ -15,6 +15,10 @@
 
 #include <iostream>
 
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+#define MAGENTA	"\033[35m"
+
 class Animal {
 	protected:
 		std::string		_type;
@@ -27,7 +31,6 @@ class Animal {
 		Animal&	operator=(const Animal& other);
 		
 		virtual void	makeSound(void) const;
-
 		std::string		getType(void) const;
 };
 

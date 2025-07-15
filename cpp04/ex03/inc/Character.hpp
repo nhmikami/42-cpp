@@ -17,28 +17,29 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
-#define MAX_INVENTORY 4
-#define MAX_FLOOR 42
+#define INVENTORY_SIZE 4
+#define FLOOR_SIZE 42
 
 class Character : public ICharacter {
 	private:
-        std::string	_name;
-        AMateria*	_inventory[4];
-        AMateria*   _floor[42];
+		std::string	_name;
+		AMateria*	_inventory[INVENTORY_SIZE];
+		AMateria*	_floor[FLOOR_SIZE];
 
-    public:
+	public:
 		Character(void);
-        Character(std::string const& name);
+		Character(std::string const& name);
 		Character(const Character& other);
-		Character&	operator=(const Character& other);
 		~Character(void);
+		
+		Character&	operator=(const Character& other);
 
-        const std::string&  getName(void) const;
-        const AMateria*     getMateria(int idx) const;
+		const std::string&  getName(void) const;
+		const AMateria*     getMateria(int idx) const;
 
-        void		equip(AMateria* m);
-        void        unequip(int idx);
-        void        use(int idx, ICharacter& target);
+		void		equip(AMateria* m);
+		void		unequip(int idx);
+		void		use(int idx, ICharacter& target);
 };
 
 #endif

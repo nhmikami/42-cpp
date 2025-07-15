@@ -13,14 +13,14 @@
 #include "Dog.hpp"
 
 Dog::Dog(void) : Animal() {
+	std::cout << "A dog has been created." << std::endl;
 	_type = "Dog";
 	_brain = new Brain();
-	std::cout << "A dog has been created." << std::endl;
 }
 
 Dog::Dog(const Dog& other) : Animal(other) {
-	_brain = new Brain(*other._brain);
 	std::cout << "A dog has been cloned." << std::endl;
+	_brain = new Brain(*other._brain);
 }
 
 Dog::~Dog(void) {
@@ -29,12 +29,12 @@ Dog::~Dog(void) {
 }
 
 Dog&	Dog::operator=(const Dog& other) {
+	std::cout << "A dog has been assigned values from another dog." << std::endl;
 	if (this != &other) {
 		_type = other._type;
 		delete _brain;
 		_brain = new Brain(*other._brain);
 	}
-	std::cout << "A dog has been assigned values from another dog." << std::endl;
 	return *this;
 }
 

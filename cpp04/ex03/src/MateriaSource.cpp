@@ -13,58 +13,64 @@
 #include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(void) {
-	for (int i = 0; i < 4; i++)
-		_materias[i] = NULL;
+	for (int i = 0; i < MEMORY_SIZE; i++)
+		_memory[i] = NULL;
 }
 
 MateriaSource::MateriaSource(const MateriaSource& other) {
-	for (int i = 0; i < 4; i++) {
-		if (other._materias[i])
-			_materias[i] = other._materias[i]->clone();
+	for (int i = 0; i < MEMORY_SIZE; i++) {
+		if (other._memory[i])
+			_memory[i] = other._memory[i]->clone();
 		else
-			_materias[i] = NULL;
+			_memory[i] = NULL;
 	}
 }
 
 MateriaSource&	MateriaSource::operator=(const MateriaSource& other) {
 	if (this != &other) {
-		for (int i = 0; i < 4; i++) {
-			delete _materias[i];
-			if (other._materias[i])
-				_materias[i] = other._materias[i]->clone();
-			else
-				_materias[i] = NULL;
+		for (int i = 0; i < MEMORY_SIZE; i++) {
+			delete _memory[i];
+			_memory[i] = NULL;
+			if (other._memory[i])
+				_memory[i] = other._memory[i]->clone();
 		}
 	}
 	return *this;
 }
 
 MateriaSource::~MateriaSource(void) {
-	for (int i = 0; i < 4; i++)
-		delete _materias[i];
+	for (int i = 0; i < MEMORY_SIZE; i++) {
+		if (_memory[i]) {
+			delete _memory[i];
+			_memory[i] = NULL;
+		}
+	}
 }
 
-void	MateriaSource::learnMateria(AMateria* materia) {
-	if (!materia)
+void	MateriaSource::learnMateria(AMateria* m) {
+	if (!m)
 		return ;
 		
-	for (int i = 0; i < 4; i++) {
-		if (!_materias[i]) {
-			_materias[i] = materia->clone();
+	for (int i = 0; i < MEMORY_SIZE; i++) {
+		if (_memory[i] == NULL) {
+			_memory[i] = m;
+			std::cout << "Materia Source: learned new materia of type " << m->getType() << " in slot " << i << std::endl;
 			return ;
 		}
 	}
-	std::cout << "MateriaSource is full, cannot learn more materias." << std::endl;
+	std::cout << "Materia Source: memory is full, cannot learn more materias" << std::endl;
+	delete m;
 	return ;
 }
 
 AMateria*	MateriaSource::createMateria(std::string const& type) {
-	for (int i = 0; i < 4; i++) {
-		if (_materias[i] && _materias[i]->getType() == type) {
-			AMateria* new_materia = _materias[i]->clone();
-			return new_materia;
+	for (int i = 0; i < MEMORY_SIZE; i++) {
+		if (_memory[i] && _memory[i]->getType() == type) {
+			AMateria* newMateria = _memory[i]->clone();
+			std::cout << "Materia Source: created materia of type " << type << std::endl;
+			return newMateria;
 		}
 	}
-	std::cout << "Materia of type " << type << " not found." << std::endl;
+	std::cout << "Materia Source: no materia of type " << type << " found, creation failed" << std::endl;
 	return NULL;
 }

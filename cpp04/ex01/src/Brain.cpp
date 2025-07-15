@@ -24,7 +24,7 @@ Brain::Brain(const Brain& other) {
 }
 
 Brain::~Brain(void) {
-	std::cout << "A brain has been disassembled." << std::endl;
+	std::cout << "Brain disassembled and all ideas vanished into thin air..." << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain& other) {
@@ -46,7 +46,7 @@ std::string	Brain::getIdea(int index) const {
 
 void	Brain::setIdea(int index, const std::string idea) {
 	if (index < 0 || index >= 100) {
-		return;
+		return ;
 	}
 	_ideas[index] = idea;
 }

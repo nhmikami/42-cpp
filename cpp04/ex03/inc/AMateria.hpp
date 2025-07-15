@@ -13,10 +13,13 @@
 #ifndef AMATERIA_HPP
 #define AMATERIA_HPP
 
-#include "ICharacter.hpp"
 #include <iostream>
 
-class ICharacter; // Forward declaration to avoid circular dependency
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+#define MAGENTA	"\033[35m"
+
+class ICharacter;
 
 class AMateria {
 	protected:
@@ -26,8 +29,9 @@ class AMateria {
 		AMateria(void);
 		AMateria(std::string const& type);
 		AMateria(const AMateria& other);
-		AMateria&	operator=(const AMateria& other);
 		virtual ~AMateria(void);
+		
+		AMateria&	operator=(const AMateria& other);
 
 		std::string	const&	getType() const;
 		virtual AMateria*	clone() const = 0;

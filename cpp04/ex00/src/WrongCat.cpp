@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(void) : WrongAnimal() {
 	std::cout << "A wrong cat has been created." << std::endl;
-	_type = "Wrong Cat";
+	_type = "Wrong cat";
 }
 
 WrongCat::WrongCat(const WrongCat& other) : WrongAnimal(other) {

@@ -14,51 +14,46 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
-#define RESET   "\033[0m"
-#define RED     "\033[31m"
-#define GREEN   "\033[32m"
-#define YELLOW  "\033[33m"
-
 int main()
 {
 	{
 		std::cout << GREEN << ">> CORRECT TEST" << RESET << std::endl;
-		const Animal*	meta = new Animal();
-		const Animal*	j = new Dog();
-		const Animal*	i = new Cat();
+		const Animal*	a = new Animal();
+		const Animal*	d = new Dog();
+		const Animal*	c = new Cat();
 		std::cout << std::endl;
 	
-		std::cout << j->getType() << " enters the playground" << std::endl;
-		std::cout << i->getType() << " enters the playground" << std::endl;
-		std::cout << meta->getType() << " enters the playground" << std::endl;
+		std::cout << d->getType() << " enters the playground" << std::endl;
+		std::cout << c->getType() << " enters the playground" << std::endl;
+		std::cout << a->getType() << " enters the playground" << std::endl;
 		std::cout << std::endl;
 	
-		i->makeSound();
-		j->makeSound();
-		meta->makeSound();
+		d->makeSound();
+		c->makeSound();
+		a->makeSound();
 		std::cout << std::endl;
 	
-		delete meta;
-		delete j;
-		delete i;
+		delete a;
+		delete d;
+		delete c;
 	}
 	std::cout << std::endl;
 	{
 		std::cout << RED << ">> WRONG TEST" << RESET << std::endl;
-		const WrongAnimal*	wrongMeta = new WrongAnimal();
-		const WrongAnimal*	wrongCat = new WrongCat();
+		const WrongAnimal*	wrongA = new WrongAnimal();
+		const WrongAnimal*	wrongC = new WrongCat();
 		std::cout << std::endl;
 
-		std::cout << wrongCat->getType() << " enters the playground" << std::endl;
-		std::cout << wrongMeta->getType() << " enters the playground" << std::endl;
+		std::cout << wrongC->getType() << " enters the playground" << std::endl;
+		std::cout << wrongA->getType() << " enters the playground" << std::endl;
 		std::cout << std::endl;
 
-		wrongCat->makeSound();
-		wrongMeta->makeSound();	
+		wrongC->makeSound();
+		wrongA->makeSound();	
 		std::cout << std::endl;
 
-		delete wrongMeta;
-		delete wrongCat;
+		delete wrongA;
+		delete wrongC;
 	}
 	return 0;
 }
