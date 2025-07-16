@@ -17,7 +17,7 @@
 int main()
 {
 	{
-		std::cout << GREEN << ">> CORRECT TEST" << RESET << std::endl;
+		std::cout << GREEN << ">> HEALTHY ANIMAL" << RESET << std::endl;
 		const Animal*	a = new Animal();
 		const Animal*	d = new Dog();
 		const Animal*	c = new Cat();
@@ -39,7 +39,7 @@ int main()
 	}
 	std::cout << std::endl;
 	{
-		std::cout << RED << ">> WRONG TEST" << RESET << std::endl;
+		std::cout << RED << ">> BROKEN ANIMAL" << RESET << std::endl;
 		const WrongAnimal*	wrongA = new WrongAnimal();
 		const WrongAnimal*	wrongC = new WrongCat();
 		std::cout << std::endl;
