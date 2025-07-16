@@ -13,63 +13,60 @@
 #include "Character.hpp"
 
 Character::Character(void) : _name("nameless") {
-	for (int i = 0; i < MAX_INVENTORY; i++)
+	for (int i = 0; i < INVENTORY_SIZE; i++)
 		_inventory[i] = NULL;
-	for (int i = 0; i < MAX_FLOOR; i++)
+	for (int i = 0; i < FLOOR_SIZE; i++)
 		_floor[i] = NULL;
 }
 
 Character::Character(std::string const& name) : _name(name) {
-	for (int i = 0; i < MAX_INVENTORY; i++)
+	for (int i = 0; i < INVENTORY_SIZE; i++)
 		_inventory[i] = NULL;
-	for (int i = 0; i < MAX_FLOOR; i++)
+	for (int i = 0; i < FLOOR_SIZE; i++)
 		_floor[i] = NULL;
 }
 
 Character::Character(const Character& other) : _name(other._name) {
-	for (int i = 0; i < MAX_INVENTORY; i++) {
+	for (int i = 0; i < INVENTORY_SIZE; i++) {
 		if (other._inventory[i])
 			_inventory[i] = other._inventory[i]->clone();
 		else
 			_inventory[i] = NULL;
 	}
-	for (int i = 0; i < MAX_FLOOR; i++) {
-		if (other._floor[i])
-			_floor[i] = other._floor[i]->clone();
-		else
-			_floor[i] = NULL;
+	for (int i = 0; i < FLOOR_SIZE; i++) {
+		_floor[i] = NULL;
 	}
 }
 
 Character& Character::operator=(const Character& other) {
 	if (this != &other) {
-		_name = other._name;
-		for (int i = 0; i < MAX_INVENTORY; i++) {
+		_name = other.getName();
+		for (int i = 0; i < INVENTORY_SIZE; i++) {
 			delete _inventory[i];
+			_inventory[i] = NULL;
 			if (other._inventory[i])
 				_inventory[i] = other._inventory[i]->clone();
-			else
-				_inventory[i] = NULL;
 		}
-		for (int i = 0; i < MAX_FLOOR; i++) {
+		for (int i = 0; i < FLOOR_SIZE; i++) {
 			delete _floor[i];
-			if (other._floor[i])
-				_floor[i] = other._floor[i]->clone();
-			else
-				_floor[i] = NULL;
+			_floor[i] = NULL;
 		}
 	}
 	return *this;
 }
 
 Character::~Character(void) {
-	for (int i = 0; i < MAX_INVENTORY; i++) {
-		delete _inventory[i];
-		_inventory[i] = NULL;
+	for (int i = 0; i < INVENTORY_SIZE; i++) {
+		if (_inventory[i]) {
+			delete _inventory[i];
+			_inventory[i] = NULL;
+		}
 	}
-	for (int i = 0; i < MAX_FLOOR; i++) {
-		delete _floor[i];
-		_floor[i] = NULL;
+	for (int i = 0; i < FLOOR_SIZE; i++) {
+		if (_floor[i]) {
+			delete _floor[i];
+			_floor[i] = NULL;
+		}
 	}
 }
 
@@ -78,7 +75,7 @@ const std::string& Character::getName(void) const {
 }
 
 const AMateria* Character::getMateria(int idx) const {
-	if (idx < 0 || idx >= MAX_INVENTORY) {
+	if (idx < 0 || idx >= INVENTORY_SIZE) {
 		std::cout << "Invalid index." << std::endl;
 		return NULL;
 	}
@@ -86,37 +83,53 @@ const AMateria* Character::getMateria(int idx) const {
 }
 
 void Character::equip(AMateria* m) {
-	for (int i = 0; i < MAX_INVENTORY; i++) {
-		if (_inventory[i] == NULL) {
-			_inventory[i] = m;
-			std::cout << "Equipped materia: " << m->getType() << " to " << _name << std::endl;
-			return;
-		}
-	}
-	std::cout << "Inventory full, cannot equip more materias." << std::endl;
-}
-
-void Character::unequip(int idx) {
-	if (idx < 0 || idx >= MAX_INVENTORY || !_inventory[idx]) {
-		std::cout << "Invalid index or no materia to unequip." << std::endl;
+	if (!m) {
+		std::cout << _name << ": unknown materia, cannot equip materia" << std::endl;
 		return ;
 	}
-	for (int i = 0; i < MAX_FLOOR - 1; i++) {
-		if (_floor[i] == NULL) {
-			_floor[i] = _inventory[idx];
-			_inventory[idx] = NULL;
-			std::cout << "Unequipped materia: " << _floor[i]->getType() << " from " << _name << std::endl;
+
+	for (int i = 0; i < INVENTORY_SIZE; i++) {
+		if (_inventory[i] == NULL) {
+			_inventory[i] = m;
+			std::cout << _name << ": equipped " << m->getType() << " materia in slot " << i << std::endl;
 			return ;
 		}
 	}
-	std::cout << "Could not unequip materia " << _inventory[idx]->getType()
-			  << ": no space on the floor!" << std::endl;
+	std::cout << _name << ": inventory is full, cannot equip more materias" << std::endl;
+	delete m;
+}
+
+void Character::unequip(int idx) {
+	if (idx < 0 || idx >= INVENTORY_SIZE) {
+		std::cout << _name << ": invalid index, cannot unequip materia" << std::endl;
+		return ;
+	}
+	else if (!_inventory[idx]) {
+		std::cout << _name << ": no materia to unequip" << std::endl;
+		return ;
+	}
+
+	for (int i = 0; i < FLOOR_SIZE; i++) {
+		if (_floor[i] == NULL) {
+			_floor[i] = _inventory[idx];
+			_inventory[idx] = NULL;
+			std::cout << _name << ": unequipped " << _floor[i]->getType() << " materia"<< std::endl;
+			return ;
+		}
+	}
+	std::cout << _name << ": no space on the floor, could not unequip materia " << _inventory[idx]->getType() << std::endl;
 }
 
 void Character::use(int idx, ICharacter& target) {
-	if (idx < 0 || idx >= MAX_INVENTORY || !_inventory[idx]) {
-		std::cout << "Invalid index or no materia to use." << std::endl;
+	if (idx < 0 || idx >= INVENTORY_SIZE) {
+		std::cout << _name << ": invalid index, cannot use materia" << std::endl;
 		return;
 	}
+	else if (!_inventory[idx]) {
+		std::cout << _name << ": no materia to use" << std::endl;
+		return;
+	}
+
+	std::cout << _name << ": ";
 	_inventory[idx]->use(target);
 }

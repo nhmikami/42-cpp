@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "AMateria.hpp"
+#include "ICharacter.hpp"
 
 AMateria::AMateria(void) : _type("unknown") {
 }

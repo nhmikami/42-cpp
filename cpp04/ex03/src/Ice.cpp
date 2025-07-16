@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Ice.hpp"
+#include "ICharacter.hpp"
 
 Ice::Ice(void) : AMateria("ice") {
 }

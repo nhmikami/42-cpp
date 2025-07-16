@@ -12,7 +12,7 @@
 
 #include "AAnimal.hpp"
 
-AAnimal::AAnimal(void) : _type("unknown animal") {
+AAnimal::AAnimal(void) : _type("Unknown animal") {
 	std::cout << "An abstract animal has been created." << std::endl;
 }
 
@@ -25,9 +25,9 @@ AAnimal::~AAnimal(void) {
 }
 
 AAnimal&	AAnimal::operator=(const AAnimal& other) {
+	std::cout << "An abstract animal has been assigned values from another abstract animal." << std::endl;
 	if (this != &other)
 		_type = other._type;
-	std::cout << "An abstract animal has been assigned values from another abstract animal." << std::endl;
 	return *this;
 }
 

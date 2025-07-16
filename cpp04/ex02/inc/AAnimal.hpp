@@ -15,6 +15,10 @@
 
 #include <iostream>
 
+#define RESET	"\033[0m"
+#define YELLOW	"\033[33m"
+#define MAGENTA	"\033[35m"
+
 class AAnimal {
 	protected:
 		std::string		_type;

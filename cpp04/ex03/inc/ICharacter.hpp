@@ -13,10 +13,9 @@
 #ifndef ICHARACTER_HPP
 #define ICHARACTER_HPP
 
-#include "AMateria.hpp"
 #include <iostream>
 
-class AMateria; // Forward declaration to avoid circular dependency
+class AMateria;
 
 class ICharacter {
 	public:

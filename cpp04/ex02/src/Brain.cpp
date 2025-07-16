@@ -24,7 +24,7 @@ Brain::Brain(const Brain& other) {
 }
 
 Brain::~Brain(void) {
-	std::cout << "A brain has been disassembled." << std::endl;
+	std::cout << "Brain disassembled and all ideas vanished into thin air..." << std::endl;
 }
 
 Brain&	Brain::operator=(const Brain& other) {

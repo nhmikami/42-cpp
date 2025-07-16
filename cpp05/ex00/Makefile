@@ -1,5 +1,5 @@
 # program name
-NAME		=	abstractAnimal
+NAME		=	bureaucrat
 
 # compiler and flags
 CC			=	c++
@@ -11,7 +11,7 @@ INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 # source files
-SRC			=	$(addprefix $(SRC_DIR), AAnimal.cpp Dog.cpp Cat.cpp Brain.cpp main.cpp)
+SRC			=	$(addprefix $(SRC_DIR), Bureaucrat.cpp main.cpp)
 OBJ			=	$(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC			=	-I $(INC_DIR)
 

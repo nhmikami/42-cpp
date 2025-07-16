@@ -17,18 +17,21 @@
 #include "IMateriaSource.hpp"
 #include <iostream>
 
+#define MEMORY_SIZE 4
+
 class MateriaSource : public IMateriaSource {
 	protected:
-		AMateria* _materias[4];
+		AMateria* _memory[MEMORY_SIZE];
 
 	public:
 		MateriaSource(void);
 		MateriaSource(const MateriaSource& other);
-		MateriaSource&	operator=(const MateriaSource& other);
 		~MateriaSource(void);
+		
+		MateriaSource&	operator=(const MateriaSource& other);
 
 		const AMateria*	getMateria(int idx) const;
-		void			learnMateria(AMateria*);
+		void			learnMateria(AMateria* m);
 		AMateria*		createMateria(std::string const& type);
 };
 
