@@ -11,7 +11,7 @@ INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 # source files
-SRC			=	$(addprefix $(SRC_DIR), Bureaucrat.cpp main.cpp)
+SRC			=	$(addprefix $(SRC_DIR), Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp Intern.cpp main.cpp)
 OBJ			=	$(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC			=	-I $(INC_DIR)
 

@@ -13,7 +13,7 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <iostream>
 #include <exception>
 
@@ -22,7 +22,7 @@
 #define YELLOW	"\033[33m"
 #define MAGENTA	"\033[35m"
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	private:
@@ -43,7 +43,8 @@ class Bureaucrat {
 		int					getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
-		void				signForm(Form& form);
+		void				signForm(AForm& form);
+		void				executeForm(const AForm& form) const;
 
 		class GradeTooHighException : public std::exception {
 			public:

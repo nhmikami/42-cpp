@@ -32,7 +32,7 @@ Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(oth
 }
 
 Bureaucrat::~Bureaucrat(void) {
-	std::cout << "A bureaucrat has been destroyed." << std::endl;
+	std::cout << _name << " bureaucrat has been destroyed." << std::endl;
 }
 
 Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
@@ -64,13 +64,23 @@ void	Bureaucrat::decrementGrade(void) {
 		_grade++;
 }
 
-void	Bureaucrat::signForm(Form& form) {
+void	Bureaucrat::signForm(AForm& form) {
 	try {
 		form.beSigned(*this);
 		std::cout << _name << " signed " << form.getName() << std::endl;
 	}
 	catch (std::exception& e) {
 		std::cout << _name << " couldn’t sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+void	Bureaucrat::executeForm(const AForm& form) const {
+	try {
+		form.execute(*this);
+		std::cout << _name << " executed " << form.getName() << std::endl;
+	}
+	catch (std::exception& e) {
+		std::cout << _name << " couldn’t execute " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
 

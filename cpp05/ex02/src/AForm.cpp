@@ -10,15 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-Form::Form(void)
-	: _name("blank form"), _signed(false), _gradeToSign(150), _gradeToExec(150) {
+AForm::AForm(void)
+	: _name("blank form"), _signed(false), _gradeToSign(150), _gradeToExec(150), _target("undefined target") {
 	std::cout << "A default blank form has been created." << std::endl;
 }
 
-Form::Form(const std::string& name, int gradeToSign, int gradeToExec)
-	: _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec) {
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExec, const std::string& target)
+	: _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec), _target(target) {
 	if (gradeToSign < HIGHEST_GRADE || gradeToExec < HIGHEST_GRADE)
 		throw GradeTooHighException();
 	else if (gradeToSign > LOWEST_GRADE || gradeToExec > LOWEST_GRADE)
@@ -26,39 +26,43 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExec)
 	std::cout << _name << " has been created. Grade to sign: " << _gradeToSign << ", grade to execute: " << _gradeToExec << "." << std::endl;
 }
 
-Form::Form(const Form& other)
-	: _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExec(other._gradeToExec) {
-	std::cout << "A form has been cloned." << std::endl;
+AForm::AForm(const AForm& other)
+	: _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExec(other._gradeToExec), _target(other._target) {
+	std::cout << _name << " has been copied." << std::endl;
 }
 
-Form::~Form(void) {
-	std::cout << "A form has been destroyed." << std::endl;
+AForm::~AForm(void) {
+	std::cout << _name << " has been destroyed." << std::endl;
 }
 
-Form&	Form::operator=(const Form& other) {
-	std::cout << "A form has received status from another form." << std::endl;
+AForm&	AForm::operator=(const AForm& other) {
+	std::cout << _name << " has received status from another form." << std::endl;
 	if (this != &other)
 		_signed = other.getSignedStatus();
 	return *this;
 }
 
-const std::string&	Form::getName(void) const {
+const std::string&	AForm::getName(void) const {
 	return _name;
 }
 
-bool	Form::getSignedStatus(void) const {
+bool	AForm::getSignedStatus(void) const {
 	return _signed;
 }
 
-int	Form::getGradeToSign(void) const {
+int	AForm::getGradeToSign(void) const {
 	return _gradeToSign;
 }
 
-int	Form::getGradeToExec(void) const {
+int	AForm::getGradeToExec(void) const {
 	return _gradeToExec;
 }
 
-void	Form::beSigned(const Bureaucrat& b) {
+const std::string&	AForm::getTarget(void) const {
+	return _target;
+}
+
+void	AForm::beSigned(const Bureaucrat& b) {
 	if (b.getGrade() > _gradeToSign)
 		throw GradeTooLowException();
 	else if (_signed)
@@ -67,19 +71,32 @@ void	Form::beSigned(const Bureaucrat& b) {
 		_signed = true;
 }
 
-const char*	Form::GradeTooHighException::what() const throw() {
+void	AForm::execute(const Bureaucrat &b) const {
+	if (!_signed)
+		throw FormNotSignedException();
+	else if (b.getGrade() > _gradeToExec)
+		throw GradeTooLowException();
+	else
+		beExecuted();
+}
+
+const char*	AForm::GradeTooHighException::what() const throw() {
 	return "grade is too high!";
 }
 
-const char*	Form::GradeTooLowException::what() const throw() {
+const char*	AForm::GradeTooLowException::what() const throw() {
 	return "grade is too low!";
 }
 
-const char*	Form::FormAlreadySignedException::what() const throw(){
+const char*	AForm::FormAlreadySignedException::what() const throw(){
 	return "form is already signed.";
 }
 
-std::ostream&	operator<<(std::ostream& out, const Form& f) {
+const char*	AForm::FormNotSignedException::what() const throw(){
+	return "form is not signed.";
+}
+
+std::ostream&	operator<<(std::ostream& out, const AForm& f) {
 	out << f.getName();
 	if (f.getSignedStatus())
 		out << " is signed. ";

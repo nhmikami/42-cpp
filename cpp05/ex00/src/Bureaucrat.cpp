@@ -16,7 +16,7 @@ Bureaucrat::Bureaucrat(void) : _name("nameless"), _grade(150) {
 	std::cout << "A default bureaucrat has been created." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 	if (grade < HIGHEST_GRADE)
 		throw GradeTooHighException();
 	else if (grade > LOWEST_GRADE)
@@ -42,7 +42,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat& other) {
 	return *this;
 }
 
-const std::string	Bureaucrat::getName(void) const {
+const std::string&	Bureaucrat::getName(void) const {
 	return _name;
 }
 
@@ -65,11 +65,11 @@ void	Bureaucrat::decrementGrade(void) {
 }
 
 const char*	Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Grade is too high!";
+	return "grade is too high!";
 }
 
 const char*	Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is too low!";
+	return "grade is too low!";
 }
 
 std::ostream&	operator<<(std::ostream& out, const Bureaucrat& b) {

@@ -1,5 +1,5 @@
 # program name
-NAME		=	form
+NAME		=	bureau
 
 # compiler and flags
 CC			=	c++

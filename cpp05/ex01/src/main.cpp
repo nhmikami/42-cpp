@@ -11,13 +11,15 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int	main(void) {
 	{
-		std::cout << YELLOW << "1. Default constructor" << RESET << std::endl;
+		std::cout << YELLOW << "1. Valid form" << RESET << std::endl;
 		try {
-			Bureaucrat b;
-			std::cout << b << std::endl;
+			std::cout << "- ";
+			Form validForm("Form A", 50, 100);
+			std::cout << validForm << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;
@@ -25,37 +27,20 @@ int	main(void) {
 	}
 	std::cout << std::endl;
 	{
-		std::cout << YELLOW << "2. Parametrized constructor and grade change" << RESET << std::endl;
+		std::cout << YELLOW << "2. Invalid form" << RESET << std::endl;
 		try {
-			Bureaucrat me("Nathalia", 50);
-			std::cout << me << std::endl;
-
-			me.incrementGrade();
-			std::cout << me << std::endl;
-
-			me.decrementGrade();
-			std::cout << me << std::endl;
-		}
-		catch (std::exception& e) {
-			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;
-		}
-	}
-	std::cout << std::endl;
-	{
-		std::cout << YELLOW << "3. Invalid grade exceptions" << RESET << std::endl;
-		try {
-			std::cout << "- Trying to create Alice with grade 0" << std::endl;
-			Bureaucrat a("Alice", 0);
-			std::cout << a << std::endl;
+			std::cout << "- Trying to create a form with grade to sign 0" << std::endl;
+			Form invalidForm1("Form B", 0, 100);
+			std::cout << invalidForm1 << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;
 		}
 		std::cout << std::endl;
 		try {
-			std::cout << "- Trying to create Bob with grade 151" << std::endl;
-			Bureaucrat b("Bob", 151);
-			std::cout << b << std::endl;
+			std::cout << "- Trying to create a form with grade to execute 151" << std::endl;
+			Form invalidForm2("Form C", 50, 151);
+			std::cout << invalidForm2 << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;
@@ -63,20 +48,46 @@ int	main(void) {
 	}
 	std::cout << std::endl;
 	{
-		std::cout << YELLOW << "4. Increment/Decrement boundary exceptions" << RESET << std::endl;
+		std::cout << YELLOW << "3. Successfully sign a form and retry" << RESET << std::endl;
 		try {
-			Bureaucrat top("Big Boss", 1);
-			std::cout << "- Trying to increment grade at upper boundary..." << std::endl;
-			top.incrementGrade();
+			std::cout << "- ";
+			Bureaucrat	bigBoss("Big Boss", 1);
+			std::cout << bigBoss << std::endl;
+			std::cout << std::endl;
+			
+			std::cout << "- ";
+			Form		topSecret("Top Secret", 1, 1);
+			std::cout << topSecret << std::endl;
+			std::cout << std::endl;
+
+			std::cout << "- Big Boss signs the form" << std::endl;
+			bigBoss.signForm(topSecret);
+			std::cout << std::endl;
+			std::cout << "- Big Boss tries to sign the form again..." << std::endl;
+			bigBoss.signForm(topSecret);
+			std::cout << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;
 		}
-		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	{
+		std::cout << YELLOW << "4. Failed to sign a form" << RESET << std::endl;
 		try {
-			Bureaucrat low("Paper Pusher", 150);
-			std::cout << "- Trying to decrement grade at lower boundary..." << std::endl;
-			low.decrementGrade();
+			std::cout << "- ";
+			Bureaucrat	paperPusher("Paper Pusher", 150);
+			std::cout << paperPusher << std::endl;
+			std::cout << std::endl;
+			
+			std::cout << "- ";
+			Form		topSecret("Top Secret", 1, 1);
+			std::cout << topSecret << std::endl;
+			std::cout << std::endl;
+
+			std::cout << "- Paper Pusher tries to sign the form..." << std::endl;
+			paperPusher.signForm(topSecret);
+			std::cout << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;

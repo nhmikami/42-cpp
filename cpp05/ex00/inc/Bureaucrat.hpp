@@ -17,6 +17,7 @@
 #include <exception>
 
 #define RESET	"\033[0m"
+#define RED		"\033[31m"
 #define YELLOW	"\033[33m"
 #define MAGENTA	"\033[35m"
 
@@ -29,13 +30,13 @@ class Bureaucrat {
 		
 	public:
 		Bureaucrat(void);
-		Bureaucrat(const std::string name, int grade);
+		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
 		virtual ~Bureaucrat(void);
 
 		Bureaucrat&	operator=(const Bureaucrat& other);
 		
-		const std::string	getName(void) const;
+		const std::string&	getName(void) const;
 		int					getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
