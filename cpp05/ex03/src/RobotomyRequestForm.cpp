@@ -1,12 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:24:41 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:24:41 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) : AForm("Robotomy Request Form", 72, 45, "undefined target") {
+RobotomyRequestForm::RobotomyRequestForm(void)
+	: AForm("Robotomy Request Form", 72, 45, "undefined target") {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Robotomy Request Form", 72, 45, target) {
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target)
+	: AForm("Robotomy Request Form", 72, 45, target) {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other) {
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other)
+	: AForm(other) {
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(void) {

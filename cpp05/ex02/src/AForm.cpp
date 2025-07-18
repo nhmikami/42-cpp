@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/16 15:39:42 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/16 15:39:42 by naharumi         ###   ########.fr       */
+/*   Created: 2025/07/18 10:23:02 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:23:02 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,7 @@ void	AForm::beSigned(const Bureaucrat& b) {
 		throw GradeTooLowException();
 	else if (_signed)
 		throw FormAlreadySignedException();
-	else
-		_signed = true;
+	_signed = true;
 }
 
 void	AForm::execute(const Bureaucrat &b) const {
@@ -76,8 +75,7 @@ void	AForm::execute(const Bureaucrat &b) const {
 		throw FormNotSignedException();
 	else if (b.getGrade() > _gradeToExec)
 		throw GradeTooLowException();
-	else
-		beExecuted();
+	beExecuted();
 }
 
 const char*	AForm::GradeTooHighException::what() const throw() {

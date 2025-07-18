@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:22:20 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:22:20 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PRESIDENTIAL_PARDON_FORM_HPP
 #define PRESIDENTIAL_PARDON_FORM_HPP
 
@@ -11,7 +23,8 @@ class	PresidentialPardonForm : public AForm {
 		~PresidentialPardonForm(void);
 
 		PresidentialPardonForm&	operator=(const PresidentialPardonForm& other);
-		
+	
+	protected:
 		void	beExecuted(void) const;
 };
 

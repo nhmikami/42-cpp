@@ -19,7 +19,6 @@
 #define RESET	"\033[0m"
 #define RED		"\033[31m"
 #define YELLOW	"\033[33m"
-#define MAGENTA	"\033[35m"
 
 class Bureaucrat {
 	private:
@@ -32,7 +31,7 @@ class Bureaucrat {
 		Bureaucrat(void);
 		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
-		virtual ~Bureaucrat(void);
+		~Bureaucrat(void);
 
 		Bureaucrat&	operator=(const Bureaucrat& other);
 		

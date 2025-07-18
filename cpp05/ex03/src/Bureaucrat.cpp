@@ -21,14 +21,12 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name) {
 		throw GradeTooHighException();
 	else if (grade > LOWEST_GRADE)
 		throw GradeTooLowException();
-	else {
-		_grade = grade;
-		std::cout << "A bureaucrat named " << _name << " with grade " << _grade << " has been created." << std::endl;
-	}
+	_grade = grade;
+	std::cout << _name << " bureaucrat with grade " << _grade << " has been created." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name), _grade(other._grade) {
-	std::cout << "A bureaucrat has been cloned." << std::endl;
+	std::cout << "A bureaucrat has been copied." << std::endl;
 }
 
 Bureaucrat::~Bureaucrat(void) {
@@ -53,15 +51,13 @@ int	Bureaucrat::getGrade(void) const {
 void	Bureaucrat::incrementGrade(void) {
 	if (_grade <= HIGHEST_GRADE)
 		throw GradeTooHighException();
-	else
-		_grade--;
+	_grade--;
 }
 
 void	Bureaucrat::decrementGrade(void) {
 	if (_grade >= LOWEST_GRADE)
 		throw GradeTooLowException();
-	else
-		_grade++;
+	_grade++;
 }
 
 void	Bureaucrat::signForm(AForm& form) {

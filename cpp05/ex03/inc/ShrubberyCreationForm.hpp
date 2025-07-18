@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:22:48 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:22:48 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SHRUBBERY_CREATION_FORM_HPP
 #define SHRUBBERY_CREATION_FORM_HPP
 
@@ -13,6 +25,7 @@ class	ShrubberyCreationForm : public AForm {
 
 		ShrubberyCreationForm&	operator=(const ShrubberyCreationForm& other);
 		
+	protected:
 		void	beExecuted(void) const;
 };
 

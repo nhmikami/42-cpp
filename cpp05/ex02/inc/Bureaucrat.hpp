@@ -35,7 +35,7 @@ class Bureaucrat {
 		Bureaucrat(void);
 		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& other);
-		virtual ~Bureaucrat(void);
+		~Bureaucrat(void);
 
 		Bureaucrat&	operator=(const Bureaucrat& other);
 		

@@ -1,12 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ShrubberyCreationForm.cpp                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:24:50 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:24:50 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("Shrubbery Creation Form", 145, 137, "undefined target") {
+ShrubberyCreationForm::ShrubberyCreationForm(void)
+	: AForm("Shrubbery Creation Form", 145, 137, "undefined target") {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("Shrubbery Creation Form", 145, 137, target) {
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target)
+	: AForm("Shrubbery Creation Form", 145, 137, target) {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other) {
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other)
+	: AForm(other) {
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(void) {

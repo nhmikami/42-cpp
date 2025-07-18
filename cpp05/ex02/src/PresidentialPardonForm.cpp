@@ -1,12 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PresidentialPardonForm.cpp                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:24:38 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:24:38 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(void) : AForm("Presidential Pardon Form", 25, 5, "undefined target") {
+PresidentialPardonForm::PresidentialPardonForm(void)
+	: AForm("Presidential Pardon Form", 25, 5, "undefined target") {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("Presidential Pardon Form", 25, 5, target) {
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target)
+	: AForm("Presidential Pardon Form", 25, 5, target) {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other) : AForm(other) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& other)
+	: AForm(other) {
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(void) {

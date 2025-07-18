@@ -28,7 +28,7 @@ Form::Form(const std::string& name, int gradeToSign, int gradeToExec)
 
 Form::Form(const Form& other)
 	: _name(other._name), _signed(other._signed), _gradeToSign(other._gradeToSign), _gradeToExec(other._gradeToExec) {
-	std::cout << "A form has been cloned." << std::endl;
+	std::cout << "A form has been copied." << std::endl;
 }
 
 Form::~Form(void) {
@@ -63,8 +63,7 @@ void	Form::beSigned(const Bureaucrat& b) {
 		throw GradeTooLowException();
 	else if (_signed)
 		throw FormAlreadySignedException();
-	else
-		_signed = true;
+	_signed = true;
 }
 
 const char*	Form::GradeTooHighException::what() const throw() {

@@ -29,12 +29,17 @@ int	main(void) {
 		try {
 			Bureaucrat me("Nathalia", 50);
 			std::cout << me << std::endl;
+			std::cout << std::endl;
 
+			std::cout << "- Incrementing grade" << std::endl;
 			me.incrementGrade();
 			std::cout << me << std::endl;
+			std::cout << std::endl;
 
+			std::cout << "- Decrementing grade" << std::endl;
 			me.decrementGrade();
 			std::cout << me << std::endl;
+			std::cout << std::endl;
 		}
 		catch (std::exception& e) {
 			std::cerr << RED << "Exception caught: "<< RESET << e.what() << std::endl;

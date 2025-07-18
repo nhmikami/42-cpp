@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Intern.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/07/18 10:59:51 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/18 10:59:51 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Intern.hpp"
 
 Intern::Intern(void) {
@@ -34,7 +46,7 @@ AForm*	Intern::makeForm(const std::string& name, const std::string& target) {
 		}
 	}
 
-	std::cout << "Intern doesn't know how to create " << name << " form." << std::endl;
+	std::cout << "Intern doesn’t know how to create " << name << " form." << std::endl;
 	return NULL;
 }
 
