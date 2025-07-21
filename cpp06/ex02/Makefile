@@ -1,5 +1,5 @@
 # program name
-NAME		=	convert
+NAME		=	identify
 
 # compiler and flags
 CC			=	c++
@@ -11,7 +11,7 @@ INC_DIR		=	inc/
 OBJ_DIR		=	obj/
 
 # source files
-SRC			=	$(addprefix $(SRC_DIR), ScalarConverter.cpp DefineTypes.cpp DisplayTypes.cpp main.cpp)
+SRC			=	$(addprefix $(SRC_DIR), Base.cpp main.cpp)
 OBJ			=	$(SRC:$(SRC_DIR)%.cpp=$(OBJ_DIR)%.o)
 INC			=	-I $(INC_DIR)
 

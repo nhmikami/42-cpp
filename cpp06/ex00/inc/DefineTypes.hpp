@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScalarConverter.hpp                                :+:      :+:    :+:   */
+/*   DefineTypes.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/07/18 14:07:25 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/21 15:42:06 by naharumi         ###   ########.fr       */
+/*   Created: 2025/07/21 14:27:22 by naharumi          #+#    #+#             */
+/*   Updated: 2025/07/21 15:35:25 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SCALAR_CONVERTER_HPP
-#define SCALAR_CONVERTER_HPP
+#ifndef DEFINE_TYPES_HPP
+#define DEFINE_TYPES_HPP
 
-#include "DefineTypes.hpp"
-#include "DisplayTypes.hpp"
 #include <iostream>
+#include <sstream>
 
-class ScalarConverter {
-	private:
-		ScalarConverter(void);
-		ScalarConverter(const ScalarConverter& other);
-		
-		ScalarConverter&	operator=(const ScalarConverter& other);
-		
-	public:
-		~ScalarConverter(void);
-
-		static void  convert(const std::string& literal);
-
-};
+bool	isChar(const std::string& str);
+bool	isInt(const std::string& str);
+bool	isFloat(const std::string& str);
+bool	isDouble(const std::string& str);
 
 #endif
