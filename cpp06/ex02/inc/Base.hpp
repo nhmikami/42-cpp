@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:07:25 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/21 18:16:13 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/22 09:03:41 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,9 @@
 #define BASE_HPP
 
 #include <iostream>
+#include <cstdlib>
 
 #define RESET	"\033[0m"
-#define RED		"\033[31m"
-#define GREEN	"\033[32m"
 #define YELLOW	"\033[33m"
 
 class Base {

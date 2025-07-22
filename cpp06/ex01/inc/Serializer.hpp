@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:07:25 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/21 18:01:24 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/22 11:08:41 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,13 @@ class Serializer {
 	private:
 		Serializer(void);
 		Serializer(const Serializer& other);
+		~Serializer(void);
 		
 		Serializer&	operator=(const Serializer& other);
 		
 	public:
-		~Serializer(void);
-
 		static uintptr_t	serialize(Data* ptr);
 		static Data*		deserialize(uintptr_t raw);
-
 };
 
 #endif

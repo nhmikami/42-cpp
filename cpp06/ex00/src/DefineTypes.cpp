@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/21 14:29:10 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/21 14:29:50 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:28:57 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,6 @@ bool	isFloat(const std::string& str) {
 	if (str == "inff" || str == "+inff" || str == "-inff" || str == "nanf")
 		return true;
 
-	if (str.find('.') == std::string::npos)
-		return false;
-
 	std::istringstream	iss(str);
 	float	num;
 	
@@ -55,9 +52,6 @@ bool	isFloat(const std::string& str) {
 bool	isDouble(const std::string& str) {
 	if (str == "inf" || str == "+inf" || str == "-inf" || str == "nan")
 		return true;
-
-	if (str.find('.') == std::string::npos)
-		return false;
 
 	std::istringstream	iss(str);
 	double	num;

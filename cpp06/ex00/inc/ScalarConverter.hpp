@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/18 14:07:25 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/21 15:42:06 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/22 17:41:49 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,12 @@ class ScalarConverter {
 	private:
 		ScalarConverter(void);
 		ScalarConverter(const ScalarConverter& other);
+		~ScalarConverter(void);
 		
 		ScalarConverter&	operator=(const ScalarConverter& other);
 		
 	public:
-		~ScalarConverter(void);
-
 		static void  convert(const std::string& literal);
-
 };
 
 #endif
