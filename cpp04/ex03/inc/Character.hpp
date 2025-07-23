@@ -28,14 +28,14 @@ class Character : public ICharacter {
 
 	public:
 		Character(void);
-		Character(std::string const& name);
+		Character(const std::string& name);
 		Character(const Character& other);
 		~Character(void);
 		
 		Character&	operator=(const Character& other);
 
-		const std::string&  getName(void) const;
-		const AMateria*     getMateria(int idx) const;
+		const std::string&	getName(void) const;
+		const AMateria*		getMateria(int idx) const;
 
 		void		equip(AMateria* m);
 		void		unequip(int idx);

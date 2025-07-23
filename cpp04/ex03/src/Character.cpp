@@ -19,7 +19,7 @@ Character::Character(void) : _name("nameless") {
 		_floor[i] = NULL;
 }
 
-Character::Character(std::string const& name) : _name(name) {
+Character::Character(const std::string& name) : _name(name) {
 	for (int i = 0; i < INVENTORY_SIZE; i++)
 		_inventory[i] = NULL;
 	for (int i = 0; i < FLOOR_SIZE; i++)
@@ -38,7 +38,7 @@ Character::Character(const Character& other) : _name(other._name) {
 	}
 }
 
-Character& Character::operator=(const Character& other) {
+Character&	Character::operator=(const Character& other) {
 	if (this != &other) {
 		_name = other.getName();
 		for (int i = 0; i < INVENTORY_SIZE; i++) {
@@ -70,11 +70,11 @@ Character::~Character(void) {
 	}
 }
 
-const std::string& Character::getName(void) const {
+const std::string&	Character::getName(void) const {
 	return _name;
 }
 
-const AMateria* Character::getMateria(int idx) const {
+const AMateria*	Character::getMateria(int idx) const {
 	if (idx < 0 || idx >= INVENTORY_SIZE) {
 		std::cout << "Invalid index." << std::endl;
 		return NULL;
@@ -82,7 +82,7 @@ const AMateria* Character::getMateria(int idx) const {
 	return _inventory[idx];
 }
 
-void Character::equip(AMateria* m) {
+void	Character::equip(AMateria* m) {
 	if (!m) {
 		std::cout << _name << ": unknown materia, cannot equip materia" << std::endl;
 		return ;
@@ -99,7 +99,7 @@ void Character::equip(AMateria* m) {
 	delete m;
 }
 
-void Character::unequip(int idx) {
+void	Character::unequip(int idx) {
 	if (idx < 0 || idx >= INVENTORY_SIZE) {
 		std::cout << _name << ": invalid index, cannot unequip materia" << std::endl;
 		return ;
@@ -120,7 +120,7 @@ void Character::unequip(int idx) {
 	std::cout << _name << ": no space on the floor, could not unequip materia " << _inventory[idx]->getType() << std::endl;
 }
 
-void Character::use(int idx, ICharacter& target) {
+void	Character::use(int idx, ICharacter& target) {
 	if (idx < 0 || idx >= INVENTORY_SIZE) {
 		std::cout << _name << ": invalid index, cannot use materia" << std::endl;
 		return;

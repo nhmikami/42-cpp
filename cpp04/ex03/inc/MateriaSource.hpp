@@ -32,7 +32,7 @@ class MateriaSource : public IMateriaSource {
 
 		const AMateria*	getMateria(int idx) const;
 		void			learnMateria(AMateria* m);
-		AMateria*		createMateria(std::string const& type);
+		AMateria*		createMateria(const std::string& type);
 };
 
 
