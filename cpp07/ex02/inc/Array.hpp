@@ -1,57 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   iter.hpp                                           :+:      :+:    :+:   */
+/*   Array.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/23 01:24:09 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/23 11:22:32 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ITER_HPP
-#define ITER_HPP
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
+#include <stdexcept>
 
 #define RESET	"\033[0m"
 #define YELLOW	"\033[33m"
 #define MAGENTA	"\033[35m"
 
-template <typename T, typename F>
-void	iter(T* array, size_t length, const F& function) {
-	if (!array)
-		return ;
-		
-	for (size_t i = 0; i < length; i++)
-		function(array[i]);
-}
-
-/* Function templates */
 template <typename T>
-void	printValue(const T& value) {
-	std::cout << value << " ";
-}
+class Array {
+	private:
+		T*				_data;
+		unsigned int	_size;
 
-template <typename T>
-void	addOne(T& value) {
-	value += 1;
-}
+	public:
+		Array(void);
+		Array(unsigned int n);
+		Array(const Array& other);
+		~Array(void);
 
-template <typename T>
-void	half(T& value) {
-	value /= 2.0;
-}
+		Array&	operator=(const Array& other);
+
+		unsigned int	size(void) const;
+		T&				operator[](unsigned int index);
+		const T&		operator[](unsigned int index) const;
+};
 
 template <typename T>
-void	toUpper(T& value) {
-	value = std::toupper(value);
-}
+std::ostream&	operator<<(std::ostream& out, const Array<T>& arr);
 
-template <typename T>
-void	append(T& value) {
-	value += "!";
-}
+#include "Array.tpp"
 
 #endif
