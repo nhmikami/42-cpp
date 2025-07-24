@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:59:05 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/24 14:28:28 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/24 16:36:47 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	main(void) {
 	try {
 		std::vector<int>::iterator	it;
 		std::cout << "vector = {10, 20, 30, 40, 50}" << std::endl;
-		std::cout << "- Searching for 30" << std::endl;
-		it = easyfind(vec, 30);
+		std::cout << "- Searching for 10" << std::endl;
+		it = easyfind(vec, 10);
 		std::cout << "Found value: " << *it << std::endl;
 
 		std::cout << "- Searching for 100" << std::endl;
@@ -39,9 +39,9 @@ int	main(void) {
 	std::cout << YELLOW << "* List container *" << RESET << std::endl;
 	std::list<int>	lst(arr, arr + sizeof(arr) / sizeof(int));
 	try {
-		std::list<int>::iterator it;
+		std::list<int>::iterator	it;
 		std::cout << "list = {10, 20, 30, 40, 50}" << std::endl;
-		std::cout << "- Searching for 40" << std::endl;
+		std::cout << "- Searching for 30" << std::endl;
 		it = easyfind(lst, 30);
 		std::cout << "Found value: " << *it << std::endl;
 
@@ -56,10 +56,10 @@ int	main(void) {
 	std::cout << YELLOW << "* Deque container *" << RESET << std::endl;
 	std::deque<int>	deq(arr, arr + sizeof(arr) / sizeof(int));
 	try {
-		std::deque<int>::iterator it;
+		std::deque<int>::iterator	it;
 		std::cout << "deque = {10, 20, 30, 40, 50}" << std::endl;
 		std::cout << "- Searching for 50" << std::endl;
-		it = easyfind(deq, 30);
+		it = easyfind(deq, 50);
 		std::cout << "Found value: " << *it << std::endl;
 
 		std::cout << "- Searching for 100" << std::endl;

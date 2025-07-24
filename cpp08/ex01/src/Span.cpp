@@ -32,6 +32,10 @@ Span&	Span::operator=(const Span& other) {
 	return *this;
 }
 
+unsigned int	Span::size(void) const {
+	return _numbers.size();
+}
+
 void	Span::addNumber(int number) {
 	if (_numbers.size() >= _maxSize)
 		throw std::length_error("Span is full: cannot add more numbers");
@@ -48,9 +52,8 @@ int	Span::shortestSpan(void) const {
 	int	minSpan = sorted[1] - sorted[0];
 	for (size_t i = 1; i < sorted.size(); i++) {
 		int	span = sorted[i] - sorted[i - 1];
-		if (span < minSpan) {
+		if (span < minSpan)
 			minSpan = span;
-		}
 	}
 	return minSpan;
 }

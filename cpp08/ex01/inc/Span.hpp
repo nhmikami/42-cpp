@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Span.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/23 18:43:16 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 19:29:18 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,10 @@ class Span {
 		
 		Span&	operator=(const Span& other);
 
-		void	addNumber(int number);
-		int		shortestSpan(void) const;
-		int		longestSpan(void) const;
+		unsigned int	size(void) const;
+		void			addNumber(int number);
+		int				shortestSpan(void) const;
+		int				longestSpan(void) const;
 
 		template <typename Iterator>
 		void	addRange(Iterator begin, Iterator end) {
