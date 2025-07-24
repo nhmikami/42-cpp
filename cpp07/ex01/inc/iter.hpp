@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   iter.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/23 01:24:09 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 11:19:22 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 #define RESET	"\033[0m"
 #define YELLOW	"\033[33m"
-#define MAGENTA	"\033[35m"
 
 template <typename T, typename F>
 void	iter(T* array, size_t length, const F& function) {
