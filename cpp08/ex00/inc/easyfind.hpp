@@ -6,7 +6,7 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/24 16:20:55 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/24 16:34:36 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 template <typename T>
 typename T::iterator	easyfind(T& container, const int value) {
-	typename T::iterator it = std::find(container.begin(), container.end(), value);
+	typename T::iterator	it = std::find(container.begin(), container.end(), value);
 	if (it == container.end()) {
 		throw std::runtime_error("Value not found");
 	}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:59:05 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/23 18:35:08 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 19:48:29 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,9 +127,64 @@ int	main(void) {
 		try {
 			std::cout << "- Trying to add vector of numbers again" << std::endl;
 			sp.addRange(vec.begin(), vec.end());
-			std::cout << "- Added the same vector of numbers again" << std::endl;
 			std::cout << "Shortest span: " << sp.shortestSpan() << std::endl;
 			std::cout << "Longest span: " << sp.longestSpan() << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl;
+	{
+		std::cout << YELLOW << "* Large range of numbers! *" << RESET << std::endl;
+		Span	sp(15000);
+		
+		std::vector<int>	largeVec;
+		for (int i = 0; i < 5000; i++)
+			largeVec.push_back(rand());
+		
+		std::list<int>	largeLst;
+		for (int i = 0; i < 5000; i++)
+			largeLst.push_back(rand());
+			
+		std::deque<int>	largeDeq;
+		for (int i = 0; i < 5000; i++)
+			largeDeq.push_back(rand());
+			
+		try {
+			sp.addRange(largeVec.begin(), largeVec.end());
+			std::cout << "- Added a large vector of numbers" << std::endl;
+			std::cout << "Current span size: " << sp.size() << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		std::cout << std::endl;
+		
+		try {
+			sp.addRange(largeLst.begin(), largeLst.end());
+			std::cout << "- Added a large list of numbers" << std::endl;
+			std::cout << "Current span size: " << sp.size() << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		std::cout << std::endl;
+		
+		try {
+			sp.addRange(largeDeq.begin(), largeDeq.end());
+			std::cout << "- Added a large deque of numbers" << std::endl;
+			std::cout << "Current span size: " << sp.size() << std::endl;
+		}
+		catch (const std::exception& e) {
+			std::cout << e.what() << std::endl;
+		}
+		std::cout << std::endl;
+		
+		try {
+			std::cout << "- Trying to add another large vector of numbers" << std::endl;
+			sp.addRange(largeVec.begin(), largeVec.end());
+			std::cout << "Current span size: " << sp.size() << std::endl;
 		}
 		catch (const std::exception& e) {
 			std::cout << e.what() << std::endl;

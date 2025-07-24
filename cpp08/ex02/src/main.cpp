@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:59:05 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/23 20:34:59 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/24 19:46:32 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	main(void) {
 			std::cout << *itl << std::endl;
 			++itl;
 		}
-		
 	}
 	std::cout << std::endl;
 	{
@@ -132,6 +131,5 @@ int	main(void) {
 		std::cout << "MutantStack1 size: " << mstack1.size() << std::endl;
 		std::cout << "MutantStack2 size: " << mstack2.size() << std::endl;
 	}
-	
 	return 0;
 }
