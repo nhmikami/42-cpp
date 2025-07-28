@@ -3,30 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/26 23:34:45 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/28 18:50:06 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BITCOIN_EXCHANGE_HPP
 #define BITCOIN_EXCHANGE_HPP
 
-#include <iostream>
+#include <cstdlib>
 #include <iomanip>
+#include <iostream>
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
 #include <map>
 
-#define RESET	"\033[0m"
-#define YELLOW	"\033[33m"
-#define MAGENTA	"\033[35m"
-
 class BitcoinExchange {
 	private:
 		std::map<std::string, float>	_data;
+
+		double	_getExchangeRate(const std::string& date) const;
 		
 	public:
 		BitcoinExchange(void);
@@ -37,9 +36,12 @@ class BitcoinExchange {
 
 		void	loadData(const std::string& filename);
 		void	processData(const std::string& filename) const;
-		double	getExchangeRate(const std::string& date) const;
-
-		void printData(void) const;
 };
+
+void	checkFile(std::ifstream& file, const std::string& filename, const std::string& header);
+bool	checkLine(const std::string& line, const std::string& sep);
+bool	isValidValue(const std::string& value);
+bool	isValidDate(const std::string& date);
+std::string	trim(const std::string& str);
 
 #endif
