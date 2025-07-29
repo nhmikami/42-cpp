@@ -6,22 +6,23 @@
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:35 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/29 09:24:37 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/29 19:06:18 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "RPN.hpp"
+#include "PmergeMe.hpp"
 
 int	main(int ac, char **av) {
-	if (ac != 2) {
-		std::cerr << "Usage: " << av[0] << " <inverted mathematical expression>" << std::endl;
+	if (ac < 2) {
+		std::cerr << "Usage: " << av[0] << " <numbers>" << std::endl;
 		return 1;
 	}
 	
-	RPN rpn;
+	PmergeMe pm;
 	try {
-		int result = rpn.solveRPN(av[1]);
-		std::cout << result << std::endl;
+		pm.processInput(ac, av);
+		pm.sortVector();
+		pm.sortDeque();
 	}
 	catch (const std::exception& e) {
 		std::cerr << "Error: " << e.what() << std::endl;
