@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:24 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/30 21:05:00 by marvin           ###   ########.fr       */
+/*   Updated: 2025/07/31 15:54:54 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,48 +40,12 @@ class PmergeMe {
 		void	sortDeque(void);
 };
 
+std::vector<int>	generateInsertionSeq(size_t n);
 int	jacobsthal(int num);
 
 template <typename Container>
-void	printContainer(const Container& c) {
-	typename Container::const_iterator	it = c.begin();
-
-	while (it != c.end()) {
-		std::cout << " " << *it ;
-		++it;
-	}
-	std::cout << std::endl; 
-}
-
-template <typename Container>
-Container	generateInsertionSeq(size_t n) {
-	Container		seq;
-	std::set<int>	seen;
-	
-	int	jacobIndex = 2;
-	int	next = jacobsthal(jacobIndex);
-	seq.push_back(next);
-	seen.insert(next);
-	
-	while (seq.size() < n) {
-		jacobIndex++;
-		next = jacobsthal(jacobIndex);
-
-		if (next > static_cast<int>(n))
-			next = static_cast<int>(n);
-			
-		while (next > 0 && seen.find(next) == seen.end()) {
-			seq.push_back(next);
-			seen.insert(next);
-			next--;
-		}
-	}
-	return seq;
-}
-
-template <typename Container>
 void	binaryInsert(Container& sorted, Container& pend) {
-	Container	insertionSeq = generateInsertionSeq<Container>(pend.size());
+	std::vector<int>	insertionSeq = generateInsertionSeq(pend.size());
 
 	for (size_t i = 0; i < insertionSeq.size(); i++) {
 		size_t index = insertionSeq[i] - 1;
@@ -138,6 +102,17 @@ bool	isSorted(const Container& c) {
 		++next;
 	}
 	return true;
+}
+
+template <typename Container>
+void	printContainer(const Container& c) {
+	typename Container::const_iterator	it = c.begin();
+
+	while (it != c.end()) {
+		std::cout << " " << *it ;
+		++it;
+	}
+	std::cout << std::endl; 
 }
 
 #endif

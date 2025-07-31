@@ -51,7 +51,7 @@ void	PmergeMe::processInput(int ac, char **av) {
 }
 
 void	PmergeMe::sortVector(void) {
-	std::cout << "Before:";
+	std::cout << "Before :";
 	printContainer(_vec);
 
 	std::clock_t		start = clock();
@@ -61,12 +61,12 @@ void	PmergeMe::sortVector(void) {
 	if (!isSorted<std::vector<int> >(sorted))
 		throw std::runtime_error("sorting vector failed");
 	
-	std::cout << "After: ";
+	std::cout << "After  :";
 	printContainer(sorted);
 
-	double	elapsedTime = static_cast<double>(finish - start) * 1000 / CLOCKS_PER_SEC;
+	double	elapsedTime = static_cast<double>(finish - start) * 1000000 / CLOCKS_PER_SEC;
 	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : "
-			  << std::fixed << std::setprecision(5) << elapsedTime << " ms" << std::endl;
+			  << std::setprecision(5) << elapsedTime << " us" << std::endl;
 }
 
 void	PmergeMe::sortDeque(void) {
@@ -77,9 +77,27 @@ void	PmergeMe::sortDeque(void) {
 	if (!isSorted<std::deque<int> >(sorted))
 		throw std::runtime_error("sorting deque failed");
 
-	double	elapsedTime = static_cast<double>(finish - start) * 1000 / CLOCKS_PER_SEC;
-	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : "
-			  << std::fixed << std::setprecision(5) << elapsedTime << " ms" << std::endl;
+	double	elapsedTime = static_cast<double>(finish - start) * 1000000 / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque  : "
+			  << std::setprecision(5) << elapsedTime << " us" << std::endl;
+}
+
+std::vector<int>	generateInsertionSeq(size_t n) {
+	std::vector<int>	seq;
+	std::set<int>		seen;
+
+	for (int j = 2; seq.size() < n; ++j) {
+		int num = jacobsthal(j);
+		if (num > static_cast<int>(n))
+			num = static_cast<int>(n);
+
+		while (num > 0 && !seen.count(num)) {
+			seq.push_back(num);
+			seen.insert(num);
+			--num;
+		}
+	}
+	return seq;
 }
 
 int	jacobsthal(int num) {
