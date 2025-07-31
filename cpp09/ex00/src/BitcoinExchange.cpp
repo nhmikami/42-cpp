@@ -104,7 +104,7 @@ double	BitcoinExchange::_getExchangeRate(const std::string& date) const {
 
 	if (it != _data.end() && it->first == date)
 		return it->second;
-	else if (it == _data.begin() || it == _data.end())
+	else if (it == _data.begin())
 		return -1.0;
 	--it;
 	return it->second;

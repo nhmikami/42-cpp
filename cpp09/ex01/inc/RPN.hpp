@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   RPN.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:24 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/29 09:24:26 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/30 21:26:58 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,5 @@ class RPN {
 		
 		int		solveRPN(const std::string& expression);
 };
-
-
 
 #endif

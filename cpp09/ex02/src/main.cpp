@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:35 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/29 19:06:18 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/30 20:45:35 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,5 @@ int	main(int ac, char **av) {
 		std::cerr << "Error: " << e.what() << std::endl;
 		return 1;
 	}
-	
 	return 0;
 }

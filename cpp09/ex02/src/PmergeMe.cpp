@@ -51,40 +51,35 @@ void	PmergeMe::processInput(int ac, char **av) {
 }
 
 void	PmergeMe::sortVector(void) {
-	std::vector<int>	controlVec = _vec;
-	std::sort(controlVec.begin(), controlVec.end());
-
 	std::cout << "Before:";
 	printContainer(_vec);
-	std::cout << "After: ";
-	printContainer(controlVec);
 
-	std::clock_t	start = clock();
-	_vec = insertMergeSort<std::vector<int>, std::vector<std::pair<int, int> > >(_vec);
-	if (_vec != controlVec)
+	std::clock_t		start = clock();
+	std::vector<int>	sorted = insertMergeSort<std::vector<int> >(_vec);
+	std::clock_t		finish = clock();
+	
+	if (!isSorted<std::vector<int> >(sorted))
 		throw std::runtime_error("sorting vector failed");
+	
+	std::cout << "After: ";
+	printContainer(sorted);
 
-	std::clock_t	finish = clock();
-	double	elapsedTime = static_cast<double>(finish - start) * 1e6 / CLOCKS_PER_SEC;
-
-	std::cout << "Time to process a range of " << _vec.size()
-			  << " elements with std::vector : " << elapsedTime << " us" << std::endl;
+	double	elapsedTime = static_cast<double>(finish - start) * 1000 / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _vec.size() << " elements with std::vector : "
+			  << std::fixed << std::setprecision(5) << elapsedTime << " ms" << std::endl;
 }
 
 void	PmergeMe::sortDeque(void) {
-	std::deque<int>	controlDeq = _deq;
-	std::sort(controlDeq.begin(), controlDeq.end());
-
 	std::clock_t	start = clock();
-	_deq = insertMergeSort<std::deque<int>, std::deque<std::pair<int, int> > >(_deq);
-	if (_deq != controlDeq)
+	std::deque<int>	sorted = insertMergeSort<std::deque<int> >(_deq);
+	std::clock_t	finish = clock();
+	
+	if (!isSorted<std::deque<int> >(sorted))
 		throw std::runtime_error("sorting deque failed");
 
-	std::clock_t	finish = clock();
-	double	elapsedTime = static_cast<double>(finish - start) * 1e6 / CLOCKS_PER_SEC;
-	
-	std::cout << "Time to process a range of " << _deq.size()
-			  << " elements with std::deque : " << elapsedTime << " us" << std::endl;
+	double	elapsedTime = static_cast<double>(finish - start) * 1000 / CLOCKS_PER_SEC;
+	std::cout << "Time to process a range of " << _deq.size() << " elements with std::deque : "
+			  << std::fixed << std::setprecision(5) << elapsedTime << " ms" << std::endl;
 }
 
 int	jacobsthal(int num) {

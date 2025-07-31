@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   BitcoinExchange.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/22 13:53:14 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/28 18:50:06 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/30 21:26:11 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ class BitcoinExchange {
 		void	processData(const std::string& filename) const;
 };
 
-void	checkFile(std::ifstream& file, const std::string& filename, const std::string& header);
-bool	checkLine(const std::string& line, const std::string& sep);
-bool	isValidValue(const std::string& value);
-bool	isValidDate(const std::string& date);
+void		checkFile(std::ifstream& file, const std::string& filename, const std::string& header);
+bool		checkLine(const std::string& line, const std::string& sep);
+bool		isValidValue(const std::string& value);
+bool		isValidDate(const std::string& date);
 std::string	trim(const std::string& str);
 
 #endif

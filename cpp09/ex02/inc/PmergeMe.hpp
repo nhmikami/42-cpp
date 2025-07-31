@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PmergeMe.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/29 09:24:24 by naharumi          #+#    #+#             */
-/*   Updated: 2025/07/29 19:05:59 by naharumi         ###   ########.fr       */
+/*   Updated: 2025/07/30 21:05:00 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <algorithm>
 #include <ctime>
+#include <iomanip>
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
@@ -54,20 +55,24 @@ void	printContainer(const Container& c) {
 
 template <typename Container>
 Container	generateInsertionSeq(size_t n) {
-	Container	seq;
+	Container		seq;
+	std::set<int>	seen;
 	
 	int	jacobIndex = 2;
-	int	next = jacobsthal(jacobIndex++);
+	int	next = jacobsthal(jacobIndex);
 	seq.push_back(next);
-
+	seen.insert(next);
+	
 	while (seq.size() < n) {
-		next = jacobsthal(jacobIndex++);
+		jacobIndex++;
+		next = jacobsthal(jacobIndex);
 
 		if (next > static_cast<int>(n))
 			next = static_cast<int>(n);
 			
-		while (std::find(seq.begin(), seq.end(), next) == seq.end()) {
+		while (next > 0 && seen.find(next) == seen.end()) {
 			seq.push_back(next);
+			seen.insert(next);
 			next--;
 		}
 	}
@@ -78,55 +83,61 @@ template <typename Container>
 void	binaryInsert(Container& sorted, Container& pend) {
 	Container	insertionSeq = generateInsertionSeq<Container>(pend.size());
 
-	for (size_t i = 1; i < insertionSeq.size(); i++) {
-		int	elem = pend[insertionSeq[i] - 1];
-		int	left = 0;
-		int	right = insertionSeq[i] - 1 + i;
-
-		while (left < right) {
-			int	middle = (left + right) / 2;
-			if (elem > sorted[middle])
-				left = middle + 1;
-			else
-				right = middle;
-		}
-		sorted.insert(sorted.begin() + left, elem);
+	for (size_t i = 0; i < insertionSeq.size(); i++) {
+		size_t index = insertionSeq[i] - 1;
+		if (index >= pend.size())
+			continue;
+			
+		int	elem = pend[index];
+		typename Container::iterator pos = std::lower_bound(sorted.begin(), sorted.end(), elem);
+		sorted.insert(pos, elem);
 	}
 }
 
-template <typename Container, typename PairContainer>
-Container	insertMergeSort(Container& input) {
+template <typename Container>
+Container	insertMergeSort(Container input) {
 	if (input.size() <= 1)
 		return input;
 
-	int	oddOut = -1;
+	int	leftoverElem = -1;
 	if (input.size() % 2 == 1) {
-		oddOut = input.back();
+		leftoverElem = input.back();
 		input.pop_back();
 	}
 	
-	PairContainer	pairs;
+	Container	smaller, larger;
 	for (size_t i = 0; i < input.size(); i += 2) {
-		int	a = input[i];
-		int	b = input[i + 1];
-		if (a > b)
-			std::swap(a, b);
-		pairs.push_back(std::make_pair(a, b));
+		int	first = input[i];
+		int	second = input[i + 1];
+		if (first > second)
+			std::swap(first, second);
+		smaller.push_back(first);
+		larger.push_back(second);
 	}
-	
-	Container	smaller;
-	Container	larger;
-	for (size_t i = 0; i < pairs.size(); i++) {
-		smaller.push_back(pairs[i].first);
-		larger.push_back(pairs[i].second);
-	}
-	if (oddOut != -1)
-		smaller.push_back(oddOut);
+	if (leftoverElem != -1)
+		smaller.push_back(leftoverElem);
 
-	Container	sorted = insertMergeSort<Container, PairContainer>(larger);
+	Container	sorted = insertMergeSort<Container>(larger);
 	binaryInsert(sorted, smaller);
-	return sorted;	
+	return sorted;
 }
 
+template <typename Container>
+bool	isSorted(const Container& c) {
+	if (c.size() < 2)
+		return true;
+
+	typename Container::const_iterator it = c.begin();
+	typename Container::const_iterator next = it;
+	++next;
+
+	while (next != c.end()) {
+		if (*it > *next)
+			return false;
+		++it;
+		++next;
+	}
+	return true;
+}
 
 #endif
